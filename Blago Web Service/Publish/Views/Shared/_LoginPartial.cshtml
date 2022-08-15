@@ -1,0 +1,77 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+      
+        <ul class="nav navbar-nav navbar-right">
+            <li><div id="logoff">
+                <a style=" color: white;text-decoration:none" href="javascript:document.getElementById('logoutForm').submit()">Выход</a></div> </li>
+        </ul>
+    }
+}
+else
+{
+    <div style="margin: 8px 0 0 0 ">
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Участвовать", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", })</li>
+            <li>@Html.ActionLink("Личный кабинет", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>
+    </div>
+}
+
+
+<style>
+    #registerLink, #loginLink {
+        font-size: medium;
+        border: 1px solid yellow;
+        margin-right: 10px;
+        padding: 9px;
+        color: white;
+        width: 160px;
+        background-color: #b0ae2c;
+        text-align: center;
+        /*font-weight: bold;*/
+    }
+
+        #registerLink:hover {
+            background-color: white;
+            color: #8d9991;
+        }
+
+        #loginLink:hover {
+            background-color: white;
+            color: #8d9991;
+        }
+
+    #loginLink {
+        margin-right: 33px;
+    }
+
+    #logoff {
+        margin: 5px 0 0 0;
+        border: 1px solid white;
+        background-color: #97bd9e;
+        font-weight: bold;
+        margin-right: 43px;
+        padding: 9px;
+        width: 100px;
+        text-align: center;
+    }
+
+        #logoff:hover {
+            background-color: #93947f;
+            border: 1px solid white;
+            color: white;
+            font-weight: bold;
+
+        }
+
+    #wlcm {
+        font-size: large;
+        color: white;
+        font-family: 'Palatino Linotype';
+        font-weight: bold;
+    }
+</style>

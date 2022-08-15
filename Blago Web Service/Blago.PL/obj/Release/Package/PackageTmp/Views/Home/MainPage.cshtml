@@ -1,0 +1,1029 @@
+﻿@model Blago.PL.Controllers.Filter
+@{ ViewBag.Title = "Личный кабинет";}
+
+<div class="row">
+    <div class="col" id="img">
+    </div>
+</div>
+
+@{
+    #region BAlance & Withdrawal:
+    var user = ViewBag.CurrentUser as Blago.PL.Models.ApplicationUser;
+    var day = user.DateRegister.Day < 10 ? $"{0}{user.DateRegister.Day}" : user.DateRegister.Day.ToString();
+    var month = user.DateRegister.Month < 10 ? $"{0}{user.DateRegister.Month}" : user.DateRegister.Month.ToString();
+    var referals = ViewBag.Referals as List<Blago.BLL.DTO.RefMemberDto>;
+    var users = ViewBag.Users as List<Blago.PL.Models.ApplicationUser>;
+    var balances = ViewBag.Balances as List<Blago.BLL.DTO.MainBalanceDto>;
+    var withdrawals = ViewBag.Withdrawals as List<Blago.BLL.DTO.WithdrawDto>;
+    var withdrawDone = withdrawals.Where(u => u.UserId == user.UserId).Where(f => f.Status == "Обработано");
+    var userWithdraws = withdrawals.Where(u => u.UserId == user.UserId).Where(f => f.Status == "В ожидании..");
+    var waiting = 0;
+    foreach (var w in userWithdraws)
+    {
+        waiting += int.Parse(w.Amount.Trim('-'));
+    }
+    var withCnt = 0;
+    foreach (var w in withdrawDone)
+    {
+        withCnt += int.Parse(w.Amount.Trim('-'));
+    }
+    var withdrawCnt = withdrawals.Where(f => f.UserId == user.UserId);
+    var mainBalance = balances.Where(f => f.UserId == user.UserId).ToList();
+    var balCnt = 0;
+    foreach (var bal in mainBalance)
+    {
+        balCnt += int.Parse(bal.Amount.Trim('+'));
+    }
+    #endregion
+
+    int l1 = 0, l2 = 0, l3 = 0, l4 = 0, l5 = 0;
+    int lcnt1 = 0, lcnt2 = 0, lcnt3 = 0, lcnt4 = 0, lcnt5 = 0;
+    var level1 = ViewBag.Level1Percent as Blago.PL.Models.Logic.ReferalInfo[];
+    var level2 = ViewBag.Level2Percent as Blago.PL.Models.Logic.ReferalInfo[];
+    var level3 = ViewBag.Level3Percent as Blago.PL.Models.Logic.ReferalInfo[];
+    var level4 = ViewBag.Level4Percent as Blago.PL.Models.Logic.ReferalInfo[];
+    var level5 = ViewBag.Level5Percent as Blago.PL.Models.Logic.ReferalInfo[];
+
+    foreach (var l in level1)
+    {
+        l1 += l.AmountPercent;
+        lcnt1++;
+    }
+    foreach (var l in level2)
+    {
+        l2 += l.AmountPercent;
+        lcnt2++;
+    }
+    foreach (var l in level3)
+    {
+        l3 += l.AmountPercent;
+        lcnt3++;
+    }
+    foreach (var l in level4)
+    {
+        l4 += l.AmountPercent;
+        lcnt3++;
+    }
+    foreach (var l in level5)
+    {
+        l5 += l.AmountPercent;
+        lcnt5++;
+    }
+    l1 += ViewBag.FirstPercent;
+    var totalAmounts = l1 + l2 + l3 + l4 + l5;
+
+
+    if(ViewBag.IsWelcome == true)
+    {
+<div style="width:750px;margin:auto" class="alert alert-success alert-dismissible">
+    <a href="~/Home/CloseAlerts" class="close" data-dismiss="alert" style="text-decoration: none;text-align:right; font-size: large; color: #82822f"
+       aria-label="close">&times;</a>
+    <h4 style="text-align:center;color:green;font-family:Arial">
+        Приветствуем Вас,&nbsp;@user.FirstName!
+    </h4>
+</div>
+}
+if (ViewBag.IsWithdrawal == true)
+{
+    <div style="width:650px;margin:auto" class="alert alert-success alert-dismissible">
+        <a href="~/Home/CloseAlerts" class="close" data-dismiss="alert" style="text-decoration: none;text-align:right; font-size: large; color: #82822f"
+           aria-label="close">&times;</a>
+        <h4 style="text-align:center;color:green;font-family:Arial">Заявка на вывод средств отправлена!</h4>
+        @*<strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Приветствую @{ViewBag.Welcome} !.</strong>*@
+    </div>
+}
+else if (ViewBag.IsWithdrawalError == true)
+{
+    <div style="width:600px;margin:auto" class="alert alert-success alert-dismissible">
+        <a href="~/Home/CloseAlerts" class="close" data-dismiss="alert" style="text-decoration: none;text-align:right; font-size: large; color: #82822f"
+           aria-label="close">&times;</a>
+        <h4 style="text-align: center; color: #262323; font-family: Arial">Вывод средств доступен от 5000 гривен!</h4>
+    </div>
+}
+else if (ViewBag.IsBalanceLess == true)
+{
+    <div style="width:600px;margin:auto" class="alert alert-success alert-dismissible">
+        <a href="~/Home/CloseAlerts" class="close" data-dismiss="alert" style="text-decoration: none;text-align:right; font-size: large; color: #82822f"
+           aria-label="close">&times;</a>
+        <h4 style="text-align: center; color: #262323; font-family: Arial">Недостаточно средств для вывода!</h4>
+    </div>
+}
+else if (ViewBag.IsRegDataUpd == true)
+{
+    <div style="width:600px;margin:auto" class="alert alert-success alert-dismissible">
+        <a href="~/Home/CloseAlerts" class="close" data-dismiss="alert" style="text-decoration: none;text-align:right; font-size: large; color: #82822f"
+           aria-label="close">&times;</a>
+        <h4 style="text-align: center; color:green; font-family: Arial">Сохранено!</h4>
+    </div>
+}
+
+<div class="container body-content">
+    <div style="width:85%;margin:auto">
+        <!-- 1st Row: Data & Balance: -->
+        <div class="row" style="padding: 5px; display: inline-block;color: #82822f;margin-top:30px;font-family:Arial">
+            <h1 style="font-weight:bold;width:600px">@user.LastName&nbsp;@user.FirstName&nbsp;@user.MiddleName</h1>
+            <h6 style="">АГЕНТ ПО ПРОДАЖАМ</h6>
+            <h6 style="">ID: @ViewBag.PhoneId</h6>
+            <h6 style="">ДАТА РЕГИСТРАЦИИ: @day.@month.@user.DateRegister.Year</h6>
+        </div>
+
+        <!-- Register data button: -->
+        <div class="row" style=" display: inline-block; color: #82822f; margin: -90px 0 0 -250px">
+            <div class="col">
+                <p>
+                    <div style="display: inline-block">
+                        <a id="ubrm" style="width: 245px" href="#" class="btn btn-default">
+                            <div onclick="document.getElementById('id01').style.display='block'" style="display:inline-block">
+                                РЕГИСТРАЦИОННЫЕ ДАННЫЕ
+                            </div>
+                        </a>
+                    </div>
+                </p>
+            </div>
+        </div>
+
+        <!-- LEFT SIDDEBAR: -->
+        @using (Html.BeginForm())
+        {
+            <div class="row" style="border: 1px solid #b0ae2c; background-color: #e7e7c0; padding: 33px">
+                <div class="row" style="text-align: right;">
+                    <div class="col-md-3" style="text-align: left">
+                        <h3 style="color: #82822f" class="nav-link">БАЛАНС</h3>
+                    </div>
+
+                    <div class="col-md-2" style="">
+                        <h6 style="color: #82822f" class="nav-link">НАЧИСЛЕННО</h6>
+                        <div style="width: 70px; margin: auto">
+                            <h3 style="text-align:right;color: #82822f;font-weight:bold">@totalAmounts</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" style="text-align: center; ">
+                        <h6 style="color: #82822f" class="nav-link">В&nbsp;ОБРАБОТКЕ</h6>
+                        <div style="width: 130px; margin: auto">
+                            <h3 style="text-align:center;color: #82822f;font-weight:bold">@waiting</h3>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; " class="col-2">
+                        <h6 style="color: #82822f" class="nav-link">ВЫВЕДЕНО</h6>
+                        <div style="text-align:center">
+                            <h3 style="color: #82822f;font-weight:bold"> @withCnt</h3>
+                        </div>
+                    </div>
+
+                    <div style="" class="col-3">
+                        <h6 style="color: #82822f" class="nav-link">ФИЛЬТР&nbsp;ПО&nbsp;ДАТЕ</h6>
+                        <div style="">
+                            <span>@Html.EditorFor(f => f.From, new { htmlAttributes = new { style = "width: 80px; background-color: #b0ae2c;border: 1px solid #827a7a; color: #262323" } })</span>
+                            <span>@Html.EditorFor(f => f.To, new { htmlAttributes = new { style = "width: 80px; background-color: #b0ae2c;border: 1px solid #827a7a; color: #262323" } })</span>
+                            @*<span><input type="date" style="width: 80px; background-color: #b0ae2c;border: 1px solid #827a7a; color: #262323" value="" /> </span>*@
+                            @*<span><input type="date" style="width: 80px; background-color: #b0ae2c; border: 1px solid #827a7a; color: #262323" value="" /></span>*@
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buttons col: -->
+                <div class="col-md-3" style="display: inline-block">
+                    <div style="display: inline-block; margin-left: 10px">
+                        <button onclick="document.getElementById('balanceForm').style.display='block'" class="btn btn-success" id="ubrm">ПОСМОТРЕТЬ</button>
+                    </div><br />
+                    <div style="margin-top:4px;display: inline-block; margin-left: 10px">
+                        <button onclick="document.getElementById('withdrawForm').style.display='block'" id="ubrm" class="list-group-item">ВЫВЕСТИ</button>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDDEBAR: -->
+                <div class="col" style="display: inline-block; text-align: center">
+                    <!-- 1st columns of inputs: -->
+                    <div style="display: inline-block">
+                        <div class="input-group mb-1">
+                            <div class="input-group">
+                                <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a;background-color:white;font-weight:bold" class="form-control" type="text" value="1 УРОВЕНЬ" readonly>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-1">
+                            <div class="input-group">
+                                <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold " class="form-control" type="text" value="2 УРОВЕНЬ" readonly>
+                            </div>
+                        </div>
+                        <div class="input-group mb-1">
+                            <div class="input-group">
+                                <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold " class="form-control" type="text" value="3 УРОВЕНЬ" readonly>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-1">
+                            <div class="input-group">
+                                <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" class="form-control" type="text" value="4 УРОВЕНЬ" readonly>
+                            </div>
+                        </div>
+                        <div class="input-group mb-1">
+                            <div class="input-group">
+                                <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" class="form-control" type="text" value="5 УРОВЕНЬ" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2nd columns of inputs: -->
+                    <div style="display: inline-block">
+                        <div class="input-group mb-1">
+                            <div class="input-group">
+                                <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@l1" readonly>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-1">
+                            <div class="input-group">
+                                <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@l2" readonly>
+                            </div>
+                        </div>
+                        <div class="input-group mb-1">
+                            <div class="input-group">
+                                <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@l3" readonly>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-1">
+                            <div class="input-group">
+                                <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@l4" readonly>
+                            </div>
+                        </div>
+                        <div class="input-group mb-1">
+                            <div class="input-group">
+                                <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@l5" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3" style="display: inline-block; text-align:center; ">
+                    <!-- 3rd row: Filter button -->
+                    <div style="display:inline-block">
+                        <div class="">
+                            <button type="submit" name="btn-Filter" class="btn btn-success" style="width:200px;margin:0 0 0 30px" id="ubrm">
+                                ВЫПОЛНИТЬ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <!-- 2nd Row: Stucture: -->
+        <!-- LEFT SIDDEBAR: -->
+        @{
+            var cntMembers = referals.Where(r => r.InvitedBy == user.UserId);
+        }
+        <div class="row" style="border: 1px solid #b0ae2c; background-color: #e7e7c0; padding: 33px; margin-top: 10px">
+            <div class="row" style="text-align:right">
+                <div class="col-md-3" style="text-align:left">
+                    <h3 style="color: #82822f" class="nav-link">СТРУКТУРА</h3>
+                </div>
+                <div class="col-md-2" style="">
+                    <h6 style="color: #82822f" class="nav-link">ПРИГЛАШЕНО&nbsp;СУБАГЕНТОВ</h6>
+                    <div style="width: 220px; margin: auto">
+                        <h3 style="text-align:center;color: #82822f;font-weight:bold">
+                            @cntMembers.Count()
+                        </h3>
+                    </div>
+                </div>
+                <div class="col-md-2" style="text-align:left">
+                    <h6 style="color: #82822f" class="nav-link"></h6>
+                    <div style="width: 130px; margin: auto">
+                        <h3 style="text-align:center;color: #82822f;font-weight:bold"></h3>
+                    </div>
+                </div>
+                <div style="text-align:left" class="col-md-3">
+                    <h6 style="color: #82822f" class="nav-link"></h6>
+                    <div style="width: 170px; margin: auto">
+                        <h3 style="text-align:left;color: #82822f;font-weight:bold"></h3>
+                    </div>
+                </div>
+           
+            </div>
+            <div class="col" style="display: inline-block">
+                <div style="display: inline-block; margin-left: 10px">
+                    <button onclick="document.getElementById('structureForm').style.display='block'" 
+                            id="ubrm" class="btn btn-success">ПОСМОТРЕТЬ</button>
+                </div><br />
+                <div style="margin-top:4px;display: inline-block; margin-left: 10px">
+
+                </div>
+            </div>
+
+            <!-- RIGHT SIDDEBAR: -->
+            <div class="col" style="display: inline-block; margin: 0 0 0 -500px">
+                <!-- 1st columns of inputs: -->
+                <div style="display: inline-block">
+                    <div class="input-group mb-1">
+                        <div class="input-group">
+                            <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold " 
+                                   class="form-control" type="text" value="1 УРОВЕНЬ" readonly>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-1">
+                        <div class="input-group">
+                            <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold " 
+                                   class="form-control" type="text" value="2 УРОВЕНЬ" readonly>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-1">
+                        <div class="input-group">
+                            <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold " 
+                                   class="form-control" type="text" value="3 УРОВЕНЬ" readonly>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-1">
+                        <div class="input-group">
+                            <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" 
+                                   class="form-control" type="text" value="4 УРОВЕНЬ" readonly>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-1">
+                        <div class="input-group">
+                            <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" 
+                                   class="form-control" type="text" value="5 УРОВЕНЬ" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2nd columns of inputs: -->
+                <div style="display:inline-block">
+                    <div class="input-group mb-1">
+                        <div class="input-group">
+                            <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; 
+background-color: white; font-weight: bold" type="text"
+                                   value="@referals.Where(u=>u.InvitedBy == user.UserId).Count()" readonly>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-1">
+                        <div class="input-group">
+                            <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; 
+background-color: white; font-weight: bold" type="text"
+                                   value="@level2.Length" readonly>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-1">
+                        <div class="input-group">
+                            <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a;
+background-color: white; font-weight: bold" type="text"
+                                   value="@level3.Length" readonly>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-1">
+                        <div class="input-group">
+                            <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; 
+background-color: white; font-weight: bold" type="text"
+                                   value="@level4.Length" readonly>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-1">
+                        <div class="input-group">
+                            <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; 
+background-color: white; font-weight: bold" type="text"
+                                   value="@level5.Length" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3rd Row: Products: -->
+        <!-- LEFT SIDDEBAR: -->
+        <div class="row" style="border: 1px solid #b0ae2c; background-color: #e7e7c0; padding: 33px; margin-top: 10px">
+            <div class="row" style="text-align:right">
+                <div class="col-md-3" style="text-align:left">
+                    <h3 style="color: #82822f" class="nav-link">ПРОДУКТЫ&nbsp;КОМПАНИИ</h3>
+                </div>
+            </div>
+
+            <!-- Products: -->
+            @using (Html.BeginForm())
+            {
+                <div class="row">
+                    @for (var i = 1; i <= 3; i++)
+                    {
+                        if (i == 1)
+                        {
+                            <div class="col" style="margin-top:-30px">
+                                <img src="~/Images/product.png" width="100%" height="" alt="Product @i" />
+                                <div style="width: 300px; text-align: center ">
+                                    <button id="ubrm" href="#" name="btn-buy @i" type="submit" class="btn btn-success">КУПИТЬ</button>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="col" style="margin-top: -30px; opacity: 0.5">
+                                <img src="~/Images/product.png" width="100%" height="" alt="Product @i" />
+                                <div style="width:300px;text-align:center">
+                                    <button id="ubrm" name="btn-buy @i" href="#" style="" class="btn btn-success" disabled>КУПИТЬ</button>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            }
+        </div>
+
+        <!-- Referal member: -->
+        <div class="row" style="margin-top:40px">
+            <div style="color: #82822f;text-align:right" class="col-md-3">
+                <h6 style="color: #82822f" class="nav-link"> РЕФЕРАЛЬНАЯ ССЫЛКА</h6>
+            </div>
+            <div class="col-md-8" style="width:700px">
+                <input type="text" style="border: 1px solid #827a7a;border-radius:0px"
+                       class="form-control" id="myInput"
+                       value="@user.Referal" />
+            </div>
+            <div class="col-md-1" style="display:inline-block;height:40px">
+                <button class="btn btn-default" style="width:100%;height:100%;background-image:src(../../Images/clipboard.png)" onclick="myFunction()">
+                    <i style="font-size:large;color:silver" class="fas fa-clipboard-list"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal forms: Registered data & other: -->
+<div style="opacity: 1" id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-4" style=" width: 800px ">
+        <header class="w3-container ">
+            <span onclick="document.getElementById('id01').style.display='none'"
+                  class="w3-button w3-display-topright">&times;</span>
+        </header>
+        @{
+            string dayBirth = user.DateOfBirth.Day < 10 ? $"{0}{user.DateOfBirth.Day}" : user.DateOfBirth.Day.ToString();
+            string mounthBirth = user.DateOfBirth.Month < 10 ? $"{0}{user.DateOfBirth.Month}" : user.DateOfBirth.Month.ToString();
+            string mounthReg = user.DateRegister.Month < 10 ? $"{0}{user.DateRegister.Month}" : user.DateRegister.Month.ToString();
+        }
+        <div class="w3-container" style="background-color: #e7e7c0">
+            <div class="row" style="width:80%;margin:auto">
+                <form action="~/Home/UpdateRegData" method="post">
+                    <div class="row" style="width:100%;margin:0 0 0 -60px">
+                        <h4 style="color: #82822f; text-align: left; font-family: Arial; margin-top: 50px; font-weight: bold">
+                            РЕГИСТРАЦИОННЫЕ ДАННЫЕ
+                        </h4>
+
+                        <div class="col" style="display: inline-block; color: #82822f; margin-top: 33px; margin: 0 0 0 15px">
+                            <div style="display: inline-block; width: 200px">ДАТА РЕГИСТРАЦИИ</div>
+                            <div style="display: inline-block">
+                                <div class="input-group">
+                                    <input readonly class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@user.DateRegister.Day.@mounthReg.@user.DateRegister.Year">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">ID</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input readonly class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@ViewBag.PhoneId">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">ФАМИЛИЯ</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input readonly class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@user.LastName">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">ИМЯ</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input readonly class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@user.FirstName">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">ОТЧЕСТВО</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input readonly class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@user.MiddleName">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">ПОЛ</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input readonly class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@user.Gender">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">ДАТА РОЖДЕНИЯ</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input readonly class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@dayBirth.@mounthBirth.@user.DateOfBirth.Year">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">ТЕЛЕФОН</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input readonly class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@user.PhoneNumber">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">E-MAIL</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input readonly class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@user.Email">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">ТЕЛЕГРАМ</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input class="form-control" name="telegram" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@user.Telegram">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">СТРАНА</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input class="form-control" name="country" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@user.Country">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">БАНКОВСКАЯ КАРТА</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input class="form-control" name="cardNumber" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@user.CardNumber">
+                                </div>
+                            </div>
+
+                            <div style="display: inline-block; margin-top: 20px;font-weight:bold">
+                                @Html.ActionLink("АГЕНТСКОЕ СОГЛАШЕНИЕ - ОФЕРТА", "AllowAgent", "Policy", null,
+              new { target = "_blank", style = "text-decoration:none;target=_blank; color: #82822f" })
+                            </div>
+                            <div style="display: inline-block; margin-top: 20px; width: 700px; font-weight: bold">
+                                @Html.ActionLink("ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ И ЗАЩИТЫ ПЕРСОНАЛЬНЫХ ДАННЫХ", "PrivatePolicy", "Policy", null,
+        new { target = "_blank", style = "text-decoration:none; color: #82822f;" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div style="display: inline-block; width: 180px; margin-top: 20px"></div>
+                        <div style="text-align:center;display:inline-block;margin-top:30px;position:center">
+                            <button id="ubrm" type="submit" style="width:150px;height:40px;font-size:medium" class="btn btn-success">СОХРАНИТЬ</button>
+                        </div>
+                        <script type="text/javascript">
+                            //var lastname = document.getElementById("lastname");
+                            //var firstname = document.getElementById("firstname");
+                            //var middlename = document.getElementById("middlename");
+                            //var gender = document.getElementById("gender");
+                            //var dateofbirth = document.getElementById("dateofbirth");
+                            //var phone = document.getElementById("phone");
+                            //var email = document.getElementById("email");
+                            var telegram = document.getElementById("telegram");
+                            var country = document.getElementById("country");
+                            var cardNumber = document.getElementById("cardNumber");
+
+                            var userInfo = {
+                                firstname: firstname,
+                                lastname: larstname,
+                                middlename: middlename,
+                                gender: gender,
+                                dateofbirth: dateofbirth,
+                                phone: phone,
+                                email: email,
+                                telegram: telegram,
+                                country: country,
+                                cardNumber: cardNumber,
+                            };
+                            $.ajax({
+                                contentType: 'application/json; charset=utf-8',
+                                dataType: 'json',
+                                type: 'POST',
+                                url: '/Home/UpdateRegData',
+                                data: JSON.stringify({ withdrawInfo = withdrawInfo });
+                                success: function (result) { alert('Вашы данные обновлены.'); },
+                                error: function (err) { alert(err.statusText); }
+                            });
+                        </script>
+                    </div>
+                </form>
+            </div>
+
+            <footer style="text-align: center; background-color: #e7e7c0" class="w3-container">
+                <h5 style="font-family:'Palatino Linotype';font-weight:bold;color:transparent">Blago</h5>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<!-- Modal form: BALANCE data & amount: -->
+<div style="opacity: 1; " id="balanceForm" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-4">
+        <header class="w3-container ">
+            <span onclick="document.getElementById('balanceForm').style.display='none'"
+                  class="w3-button w3-display-topright">&times;</span>
+        </header>
+        <div class="w3-container" style="background-color: #e7e7c0">
+            <div class="row" style="margin-top:30px">
+                <div class="col" style="">
+                    <h3 style="color: #82822f" class="nav-link">ИСТОРИЯ ОПЕРАЦИЙ</h3>
+                </div>
+            </div>
+            <div class="row" style="height:60%;margin:auto; ">
+                <div class="col-md-3" style="width:250px">
+                    <h6 style="color: #82822f" class="nav-link"></h6>
+                </div>
+                <div class="col-md-3" style="">
+                    <h6 style="color: #82822f" class="nav-link">ДАТА</h6>
+                </div>
+                <div class="col-md-3" style="text-align: left;">
+                    <h6 style="color: #82822f" class="nav-link">СУММА</h6>
+                </div>
+            </div>
+            <div class="row" style="width: 60%; margin: auto;">
+                <div class="col" style="display: inline-block;color: #82822f;">
+                    @{
+                        var balWithdr = ViewBag.BalWithdr as Dictionary<DateTime, string>;
+
+                        foreach (var w in balWithdr)
+                        {
+                            if (w.Value[0] == '+')
+                            {
+                                <div style="display: inline-block">
+                                    <div class="input-group">
+                                        <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@w.Key">
+                                    </div>
+                                </div>
+                                <div style="display: inline-block">
+                                    <div class="input-group">
+                                        <input class="form-control" style="text-align: center; border-radius: 0px; color: #529423; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@w.Value">
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div style="display: inline-block">
+                                    <div class="input-group">
+                                        <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@w.Key">
+                                    </div>
+                                </div>
+                                <div style="display: inline-block">
+                                    <div class="input-group">
+                                        <input class="form-control" style="text-align: center; border-radius: 0px; color: #3d3d33; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@w.Value">
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+        <footer style="text-align: center; background-color: #e7e7c0" class="w3-container">
+            <h5 style="font-family:'Palatino Linotype';font-weight:bold;color:transparent">Blago</h5>
+        </footer>
+    </div>
+</div>
+
+<!-- Modal form: WITHDRAWALS: -->
+<div style="opacity: 1" id="withdrawForm" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-4" style=" width: 800px ">
+        <header class="w3-container ">
+            <span onclick="document.getElementById('withdrawForm').style.display='none'"
+                  class="w3-button w3-display-topright">&times;</span>
+        </header>
+        <div class="w3-container" style="background-color: #e7e7c0">
+            <form action="~/Home/Withdrawals" method="post">
+                <div class="row" style="width:80%;margin:auto">
+                    <div class="row" style="width:100%;margin:0 0 0 -60px">
+                        <h4 style="color: #82822f; text-align: left; font-family: Arial; margin-top: 50px; font-weight: bold">
+                            ВЫВОД СРЕДСТВ
+                        </h4>
+                        <input name="userId" hidden value="@user.UserId" />
+                        <div class="col" style="display: inline-block; color: #82822f; margin: 0 0 0 15px">
+                            <div style="display: inline-block; width: 200px">ДАТА</div>
+                            <div style="display: inline-block">
+                                <div class="input-group">
+                                    <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@user.DateRegister">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">ID</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@ViewBag.PhoneId">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">ФАМИЛИЯ</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@user.LastName">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">ИМЯ</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@user.FirstName">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">ОТЧЕСТВО</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@user.MiddleName">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px">БАНКОВСКАЯ КАРТА</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input class="form-control" required name="numberCard" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@user.CardNumber">
+                                </div>
+                            </div>
+
+                            <div style="display:inline-block;width:200px;margin-top:20px;font-weight:bold">СУММА</div>
+                            <div style="display:inline-block">
+                                <div class="input-group">
+                                    <input class="form-control" required name="amount" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div style="display: inline-block; width: 180px; margin-top: 20px"></div>
+                        <div style="text-align:center;display:inline-block;margin-top:30px;position:center">
+                            <button id="ubrm" type="submit" style="width:150px;height:40px;font-size:medium" class="btn btn-success">ВЫВЕСТИ</button>
+                        </div>
+                    </div>
+
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+                    <script type="text/javascript">
+                        var userId = document.getElementById("userId");
+                        //var dateWithdraw = document.getElementById("");
+                        var numberCard = document.getElementById("numberCard");
+                        var amount = document.getElementById("amnt");
+                        //var message = "Новая заявка на вывод!";
+                        //var status = "В ожидании";
+                        var withdrawInfo = {
+                            userId: userId,
+                            amount: amount,
+                            userId: userId,
+                            numberCard: numberCard,
+                        };
+                        $.ajax({
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: 'json',
+                            type: 'POST',
+                            url: '/Home/Withdrawals',
+                            data: JSON.stringify({ withdrawInfo = withdrawInfo });
+                            success: function (result) { alert('Ваша заявка отправлена на рассмотрение.'); },
+                            error: function (err) { alert(err.statusText); }
+                        });
+                    </script>
+                </div>
+                <footer style="text-align: center; background-color: #e7e7c0" class="w3-container">
+                    <h5 style="font-family:'Palatino Linotype';font-weight:bold;color:transparent">Blago</h5>
+                </footer>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal form: STRUCTURE: -->
+<div style="opacity: 1; " id="structureForm" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-4" style="width:70%">
+        <header class="w3-container ">
+            <span onclick="document.getElementById('structureForm').style.display='none'"
+                  class="w3-button w3-display-topright">&times;</span>
+        </header>
+        @{         
+            var level1Cnt = ViewBag.Level1Cnt as Blago.PL.Models.Logic.ReferalInfo[];
+            var level2Cnt = ViewBag.Level2Cnt as Blago.PL.Models.Logic.ReferalInfo[];
+            var level3Cnt = ViewBag.Level3Cnt as Blago.PL.Models.Logic.ReferalInfo[];
+            var level4Cnt = ViewBag.Level4Cnt as Blago.PL.Models.Logic.ReferalInfo[];
+            var level5Cnt = ViewBag.Level5Cnt as Blago.PL.Models.Logic.ReferalInfo[];
+            var subAgentsCnt = level2Cnt.Count() + level3Cnt.Count() + level4Cnt.Count() + level5Cnt.Count();
+        }
+        <form action="~/Home/SendMessage" method="post">
+            <div class="w3-container" style="background-color: #e7e7c0">
+                <!-- 1st row: -->
+                <div class="row" style="margin-top:30px">
+                    <div class="col" style="">
+                        <h3 style="color: #82822f" class="nav-link">СТРУКТУРА</h3>
+                    </div>
+                    <div class="col">
+                        <h6 style="color: #82822f" class="nav-link">
+                            ПРИГЛАШЕНО&nbsp;СУБАГЕНТОВ&nbsp;1&nbsp;УРОВНЯ&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span style="font-weight: bold;font-size:x-large; color: #529423">
+                                @level1Cnt.Length
+                            </span>
+                        </h6>
+                    </div>
+
+                    <div class="col"></div>
+                </div>
+
+                <!-- 2nd row: -->
+                <div class="row" style="text-align:center;height:50%">
+                    <div class="col" style="">
+                        <h6 style="color: #82822f" class="nav-link">ФИО</h6>
+                    </div>
+                    <div class="col" style="">
+                        <h6 style="color: #82822f" class="nav-link">ТЕЛЕФОН</h6>
+                    </div>
+                    <div class="col" style="">
+                        <h6 style="color: #82822f" class="nav-link">ДАТА&nbsp;РЕГИСТРАЦИИ</h6>
+                    </div>
+                    <div class="col" style="">
+                        <h6 style="color: #82822f" class="nav-link">E-MAIL</h6>
+                    </div>
+                    <div class="col" style="">
+                        <h6 style="color: #82822f" class="nav-link">СУБАГЕНТЫ</h6>
+                    </div>
+                    <div class="" style="width: 50px">
+                        <div style="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3rd row: -->
+                @foreach (var refer in referals)
+                {
+                    if (refer.InvitedBy == user.UserId)
+                    {
+                        var refMember = users.FirstOrDefault(f => f.UserId == refer.MemberId);
+                        //var subRef = referals.Where(s => s.OwnerId == refMember.UserId);
+                        <div class="row " style="text-align:center">
+                            <input hidden value="@refMember.UserId" name="userId" />
+                            <div class="col" style="">
+                                <input class="form-control flex-fill" style="text-align: center; width: 100%; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text"
+                                       value="@refMember.LastName @refMember.FirstName @refMember.MiddleName">
+                            </div>
+                            <div class="col" style="">
+                                <input class="form-control flex-fill" style="text-align: center; width: 100%; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text"
+                                       value="@refMember.PhoneNumber">
+                            </div>
+
+                            <div class="col" style="">
+                                <input class="form-control flex-fill" style="text-align: center; width: 100%; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text"
+                                       value="@user.DateRegister">
+                            </div>
+                            <div class="col" style="">
+                                <input class="form-control flex-fill" style="text-align: center; width: 100%; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold " type="text"
+                                       value="@refMember.Email">
+                            </div>
+
+                            <div class="col" style="height:60%">
+                                <input class="flex-fill form-control" style="text-align:center; border-radius: 0px;width:100%; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text"
+                                       value="@subAgentsCnt">
+                            </div>
+
+                            <div class="" style="width: 60px;height:40%">
+                                <button type="submit" class="btn btn-default" onclick="document.getElementById('id01').style.display='block'">
+                                    <img src="~/Images/Написать.png" width="50" height="36" style="width:100%" />
+                                </button>
+                            </div>
+                            <script type="text/javascript">
+                                var userId = document.getElementById("userId");
+
+                                var userInfo = {
+                                    userId: userId,
+                                };
+                                $.ajax({
+                                    contentType: 'application/json; charset=utf-8',
+                                    dataType: 'json',
+                                    type: 'POST',
+                                    url: '/Home/SendMessage',
+                                    data: JSON.stringify({ userInfo = userInfo });
+                                    success: function (result) { alert('Вашы данные обновлены.'); },
+                                    error: function (err) { alert(err.statusText); }
+                                });
+                            </script>
+                        </div>
+                    }
+                }
+            </div>
+        </form>
+        <footer style="text-align: center; background-color: #e7e7c0" class="w3-container">
+            <h5 style="font-family:'Palatino Linotype';font-weight:bold;color:transparent">Blago</h5>
+        </footer>
+    </div>
+</div>
+
+}
+
+<!-- Model form: Send message: -->
+@*<div style="opacity:0.97" id="msg" class="w3-modal">
+        <div class="w3-modal-content w3-animate-zoom w3-card-4">
+            <header class="w3-container w3-teal">
+                <span onclick="document.getElementById('msg').style.display='none'"
+                      class="w3-button w3-display-topright">&times;</span>
+                <h2 style="text-align:center;font-family:'Palatino Linotype'">Write Us</h2>
+            </header>
+            <div class="w3-container">
+                <form action="~/Home/SendMessage" method="post" style="padding:50px">
+                    <input name="theme" style="margin-bottom:5px" type="text" class="form-control" placeholder="Тема" readonly />
+                    <input name="userName" style="margin-bottom:5px" type="text" class="form-control" placeholder="@user.FirstName" readonly />
+                    <input name="email" style="margin-bottom:5px" type="email" class="form-control" placeholder="@user.Email" readonly />
+                    <input name="phone" style="margin-bottom:5px" type="tel" class="form-control" placeholder="@user.PhoneNumber" readonly />
+                    <div class="form-outline">
+                        <textarea name="comment" placeholder="Comments" class="form-control" rows="4" required></textarea>
+                    </div>
+                    <br />
+                    <div style="width:90px;margin:auto">
+                        <input class="btn btn-primary" type="submit" value="Send" />
+                    </div>
+                </form>
+            </div>
+            <footer style="text-align:center" class="w3-container w3-teal">
+                <h5 hidden style="font-family:'Palatino Linotype';font-weight:bold">MAOTS ent Best Buy Online</h5>
+            </footer>
+        </div>
+    </div>
+    <script>
+        var theme = document.getElementById("theme");
+        var phone = document.getElementById("phone");
+        var userName = document.getElementById("userName");
+        var email = document.getElementById("email");
+        var comment = document.getElementById("comment");
+        var mailInfo = { mail: email, name: userName, phn: phone, commt: comment, title: theme };
+        $.ajax({
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            type: 'POST',
+            url: '/Home/SendMessage',
+            data: mailInfo,
+            success: function (result) {
+                alert(result);
+            },
+            error: function (err) {
+                alert(err.statusText);
+            }
+        });
+    </script>*@
+
+
+<script>
+    function myFunction() {
+        var copyText = document.getElementById("myInput");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(copyText.value);
+    }
+</script>
+
+<style>
+    #ubrm {
+        text-align: center;
+        width: 145px;
+        color: white;
+        border: 2px solid #93947f;
+        padding: 5px;
+        background-color: #97bd9e;
+        border-radius: 0px;
+    }
+
+        #ubrm:hover {
+            color: white;
+            border: 2px solid #b0ae2c;
+            padding: 5px;
+            background-color: #93947f;
+        }
+
+    #img {
+        margin-top: -10px;
+        height: 400px;
+        min-height: 100%;
+        background-image: url('../../Images/Личный кабинет.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

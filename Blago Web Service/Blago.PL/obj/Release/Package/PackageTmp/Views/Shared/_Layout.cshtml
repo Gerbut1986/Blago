@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title  Blago Дать</title>
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/JavaScript.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/Content/AdminPart/AdminPanel/plugins/fontawesome-free/css/all.min.css">
+</head>
+<body>
+    @*style="background-image:url(../../Images/arms.jpg)"*@
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #b0ae2c">
+        <div class="container-fluid" style="background-color: #b0ae2c">
+            @Html.ActionLink("BLAGO", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", style = "font-weight:bold;font-size:x-large;font-family:Arial;color:white;margin-left:100px;padding:9px" })
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul style="padding: 22px" class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        @Html.ActionLink("О проекте", "About", "Sections", null, new { @class = "nav-link active", id = "btn", style = "margin-left:200px" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Продукт", "Product", "Sections", null, new { @class = "nav-link", id = "btn" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Мотивация", "Motivation", "Sections", new { @class = "nav-link", id = "btn" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Новости", "News", "Sections", new { @class = "nav-link", id = "btn" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Вопросы", "Questions", "Sections", new { @class = "nav-link", id = "btn" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Обратная связь", "Feedback", "Sections", new { @class = "nav-link", id = "btn" })
+                    </li>
+                </ul>
+                <p class="d-flex">
+                    @Html.Partial("_LoginPartial")
+                </p>
+            </div>
+        </div>
+    </nav>
+
+        @RenderBody()
+
+        <hr />
+        <footer>
+            <p style="text-align:center">&copy; @DateTime.Now.Year - Blago Дать</p>
+        </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <style>
+        #btn {
+            margin-left: 10px;
+            color: white;
+            font-size: large;
+            text-align: center;
+            width: 160px;
+            border: 0.1px solid transparent;
+            /*margin-top: 8px;*/
+            padding: 9px;
+            /*margin:15px 0 0 0;*/
+        }
+
+            #btn:hover {
+                padding: 9px;
+                border: 0.1px solid #97bd9e;
+                background-color: white;
+                color: #8d9991;
+            }
+    </style>
+</body>
+</html>
+
+
+

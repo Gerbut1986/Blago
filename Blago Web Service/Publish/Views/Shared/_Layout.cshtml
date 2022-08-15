@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Blago Дать</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/JavaScript.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #b0ae2c">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div style="margin-top: 15px">
+                @Html.ActionLink("BLAGO", "MainPage", "Home", new { area = "" }, new { @class = "navbar-brand", style = "font-size:x-large;font-family:Arial;color:white;margin-left:33px" })
+           </div>
+                @*<a href="#" >
+            <img src="~/Images/blago-logo.png" height="80" width="150"/>
+        </a>*@
+        </div>
+            <div class="navbar-collapse collapse" style="padding:12px">
+                <div style="margin:auto;width:1000px">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("О проекте", "Index", "Home", null, new { id = "btn" })</li>
+                        <li>@Html.ActionLink("Продукт", "Index", "Home", null, new { id = "btn" })</li>
+                        <li>@Html.ActionLink("Мотивация", "About", "Home", new { id = "btn" })</li>
+                        <li>@Html.ActionLink("Вопросы", "Contact", "Home", new { id = "btn" })</li>
+                        <li>@Html.ActionLink("Обратная связь", "Contact", "Home", new { id = "btn" })</li>
+                    </ul>
+                </div>
+                @Html.Partial("_LoginPartial")
+            </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p style="text-align:center">&copy; @DateTime.Now.Year - Blago Дать</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <style>
+        #btn {
+            margin-left: 0px;
+            color: white;
+            font-size: large;
+            text-align: center;
+            width: 160px;
+            margin-top: 8px;
+            padding: 9px;
+            /*margin:15px 0 0 0;*/
+        }
+            #btn:hover {
+                padding: 9px;
+                border: 0.1px solid #97bd9e;
+                background-color: white;
+                color: #8d9991;
+            }
+    </style>
+</body>
+</html>
+
+
+

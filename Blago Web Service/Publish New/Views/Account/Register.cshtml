@@ -1,0 +1,208 @@
+﻿@model Blago.PL.Models.RegisterViewModel
+@{
+    Layout = null;
+    ViewBag.Title = "Зарегистрироватся";
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Зарегистрироватся</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/AdminPart/LoginForm/theme-bootstrap-login-form-20/css/A.style.css.pagespeed.cf.eQk9-CoeFP.css")">
+    <script nonce="cc73c18c-d00f-4bf9-8a66-7ba3dd21292d">
+        (function (w, d) {
+            !function (a, e, t, r)
+            {
+                a.zarazData = a.zarazData || {}; a.zarazData.executed = []; a.zaraz =
+                    { deferred: [] }; a.zaraz.q = []; a.zaraz._f =
+                    function (e) { return function () { var t = Array.prototype.slice.call(arguments); a.zaraz.q.push({ m: e, a: t }) } };
+                for (const e of ["track", "set", "ecommerce", "debug"]) a.zaraz[e] = a.zaraz._f(e); a.zaraz.init = () =>
+                {
+                    var t = e.getElementsByTagName(r)[0], z = e.createElement(r), n = e.getElementsByTagName("title")[0];
+                    n && (a.zarazData.t = e.getElementsByTagName("title")[0].text); a.zarazData.x = Math.random(); a.zarazData.w = a.screen.width;
+                    a.zarazData.h = a.screen.height; a.zarazData.j = a.innerHeight; a.zarazData.e = a.innerWidth; a.zarazData.l = a.location.href;
+                    a.zarazData.r = e.referrer; a.zarazData.k = a.screen.colorDepth; a.zarazData.n = e.characterSet;
+                    a.zarazData.o = (new Date).getTimezoneOffset(); a.zarazData.q = [];
+                    for (; a.zaraz.q.length;){ const e = a.zaraz.q.shift(); a.zarazData.q.push(e) } z.defer = !0;
+                    for (const e of [localStorage, sessionStorage])
+                        Object.keys(e || {}).filter((a => a.startsWith("_zaraz_"))).forEach((t => {
+                            try { a.zarazData["z_" + t.slice(7)] = JSON.parse(e.getItem(t)) }
+                            catch { a.zarazData["z_" + t.slice(7)] = e.getItem(t) }
+                        })); z.referrerPolicy = "origin";
+                    z.src = "@Url.Content("~/Content/AdminPart/LoginForm/theme-bootstrap-login-form-20/cdn-cgi-zaraz/s.js?z=")" + btoa(encodeURIComponent(JSON.stringify(a.zarazData)));
+                    t.parentNode.insertBefore(z, t)
+                };["complete", "interactive"].includes(e.readyState) ? zaraz.init() : a.addEventListener("DOMContentLoaded", zaraz.init)
+            }(w, d, 0, "script");
+        })(window, document);</script>
+</head>
+
+<body class="img js-fullheight" id="bg" style="background-image:src(@Url.Content("~/Images/register.jpg")">
+    <style>
+        #bg {
+            background-image:linear-gradient(white,transparent);
+            /*background: url(../../Images/register.jpg) no-repeat fixed;*/
+        }
+
+        #fld {
+            background-color: #dede92;
+            border-radius: 0px;
+        }
+
+        #btn {
+            border-radius: 0px;
+        }
+
+            #btn:hover {
+                border-radius: 0px;
+                background-color: #b0ae2c;
+            }
+        #refMember {
+            border-radius: 0px;
+            background-color: #a1a144;
+            color: #424215;
+            padding:12px
+        }
+    </style>
+    @*style="background-color: #b0ae2c">*@
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        @if (ViewBag.IsError == true)
+                        {
+                        <h5 style="text-align:center;color:red">
+                            @ViewBag.Error
+                        </h5>
+                        }
+                        <h2 class="heading-section">Регистрация</h2>
+                        <label> СТАРШИЙ АГЕНТ</label>
+                        <div style="width:350px;margin:auto">
+                            <h5 id="refMember">
+                                @ViewBag.Referal
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="login-wrap p-0">
+                            <form action="#" class="signin-form">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(u => u.LastName, new { placeholder = "Фамилия:", @class = "form-control", id = "fld" })
+                                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })<br />
+                                </div>
+                                <div style="margin-top:-10px" class="form-group">
+                                    @Html.TextBoxFor(u => u.FirstName, new { placeholder = "Имя:", @class = "form-control", id = "fld" })
+                                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })<br />
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(u => u.MiddleName, new { placeholder = "Отчество:", @class = "form-control", id = "fld" })
+                                    @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })<br />
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.Gender, ViewBag.Gender as SelectList, new { placeholder = "Ваш пол:", @class = "form-control", id = "fld" })
+                                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })<br />
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(u => u.DateOfBirth, new { htmlAttributes = new { @class = "form-control", id = "fld" } })
+                                    @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })<br />
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(u => u.PhoneNumber, new { placeholder = "Номер телефона:", @class = "form-control", id = "fld" })
+                                    @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })<br />
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(u => u.Email, new { placeholder = "E-mail:", @class = "form-control", id = "fld" })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })<br />
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(u => u.Telegram, new { placeholder = "Telegram:", @class = "form-control", id = "fld" })
+                                    @Html.ValidationMessageFor(model => model.Telegram, "", new { @class = "text-danger" })<br />
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(u => u.Country, new { placeholder = "Страна:", @class = "form-control", id = "fld" })
+                                    @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })<br />
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(u => u.Password, new { placeholder = "Пароль:", @class = "form-control", id = "fld" })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })<br />
+                                </div>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(u => u.ConfirmPassword, new { placeholder = "Повторить пароль:", @class = "form-control", id = "fld" })
+                                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })<br />
+                                </div>                               
+
+                                <div class="form-group d-md-flex">
+                                    <div class="w-60">
+                                        <label class="checkbox-wrap checkbox-primary" style="color: #4f7857">
+                                            АГЕНТСКОЕ СОГЛАШЕНИЕ-ОФЕРТА
+                                            <input type="checkbox" required>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group d-md-flex">
+                                    <div class="w-60">
+                                        <label class="checkbox-wrap checkbox-primary" style="color: #4f7857">
+                                            ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ И ЗАЩИТЫ ПЕРСОНАЛЬНЫХ ДАННЫХ
+                                            <input type="checkbox" required>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" id="btn" class="form-control btn btn-primary submit px-3"> Зарегистрироватся </button>
+                                    </div>
+                            </form>
+                            <p class="w-100 text-center">                                
+                                @Html.ActionLink("ВЕРНУТЬСЯ НАЗАД", "MainPage", "Home", null, new { @class = "", style = "font-size:largeк;text-decoration:none;color:#93947f" })                             
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+    <script src="@Url.Content("~/Content/AdminPart/LoginForm/theme-bootstrap-login-form-20/js/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Content/AdminPart/LoginForm/theme-bootstrap-login-form-20/js/popper.js+bootstrap.min.js+main.js.pagespeed.jc.9eD6_Mep8S.js")"></script>
+    <script>eval(mod_pagespeed_T07FyiNNgg);</script>
+    <script>eval(mod_pagespeed_zB8NXha7lA);</script>
+    <script>eval(mod_pagespeed_xfgCyuItiV);</script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" 
+            integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" 
+            data-cf-beacon='{"rayId":"72ce7fb10a232d97","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2022.6.0","si":100}' 
+            crossorigin="anonymous">
+    </script>
+    <style>
+        #btn {
+            background-color: #97bd9e;
+        }
+            #btn:hover {
+               background-color: #8d9991;
+            }
+    </style>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<br />
+<br />
+
+@if (ViewBag.IsWelcome == true)
+{
+    <div style="width:450px;margin:auto" class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        @*<strong><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> "Приветствую -  " + @{ViewBag.Welcome} + "!".</strong>*@
+    </div>
+}
+
+<div />
+<div class="row" style="border-block-end:1px solid blue">
+    <div class="col-md-1" style="border-block-end:5px solid green">
+        col 1
+    </div>
+    <div class="col" style="border-block-end:3px solid red">
+        col 2
+    </div>
+</div>
+
+
+
+
+<style>
+</style>

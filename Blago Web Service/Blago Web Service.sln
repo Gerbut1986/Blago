@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blago.PL", "Blago.PL\Blago.PL.csproj", "{DD577E73-1E38-4659-BE77-B394C44805AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blago.DAL", "Blago.DAL\Blago.DAL.csproj", "{CDE30103-A16E-46F5-8278-2065A9C824BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blago.BLL", "Blago.BLL\Blago.BLL.csproj", "{D9916F46-8198-4A55-82C0-79B7BD746618}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD577E73-1E38-4659-BE77-B394C44805AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD577E73-1E38-4659-BE77-B394C44805AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD577E73-1E38-4659-BE77-B394C44805AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD577E73-1E38-4659-BE77-B394C44805AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDE30103-A16E-46F5-8278-2065A9C824BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDE30103-A16E-46F5-8278-2065A9C824BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDE30103-A16E-46F5-8278-2065A9C824BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDE30103-A16E-46F5-8278-2065A9C824BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9916F46-8198-4A55-82C0-79B7BD746618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9916F46-8198-4A55-82C0-79B7BD746618}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9916F46-8198-4A55-82C0-79B7BD746618}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9916F46-8198-4A55-82C0-79B7BD746618}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {146DE703-133E-48E5-AFA2-37BE9B2CE16E}
+	EndGlobalSection
+EndGlobal

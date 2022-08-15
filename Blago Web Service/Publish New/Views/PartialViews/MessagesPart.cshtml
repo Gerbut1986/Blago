@@ -1,0 +1,29 @@
+﻿
+@{ 
+    var msgs = ViewBag.Messages as List<Blago.BLL.DTO.MessageDto>;
+    var users = (List<Blago.PL.Models.ApplicationUser>)ViewBag.Users;
+
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr style="text-align:center">
+                <th scope="col">Дата</th>
+                <th scope="col">ID</th>
+                <th scope="col">Отправитель</th>
+                <th scope="col">Тема</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var msg in msgs)
+            {
+                Blago.PL.Models.ApplicationUser sender = users.FirstOrDefault(s => s.UserId == msg.SenderId);
+            <tr style="text-align:center">
+                <td>@msg.DateSend</td>
+                <th scope="row">@sender.PhoneNumber</th>
+                <td>@sender.LastName @sender.FirstName[0] . @sender.MiddleName[0] .</td>
+                <td>@msg.Title</td>
+                <td>@Html.ActionLink("Детали сообщения", "_829528a_441d_484m_862i_22475963ffdn", "admin",new { msgDetailId = msg.Id },new { @class="btn btn-warning" })</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }

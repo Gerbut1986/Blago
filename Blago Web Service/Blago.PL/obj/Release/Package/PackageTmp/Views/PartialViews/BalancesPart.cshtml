@@ -1,0 +1,33 @@
+﻿
+@{
+    var users = ViewBag.Users as List<Blago.PL.Models.ApplicationUser>;
+    var balances = ViewBag.MainBalances as List<Blago.BLL.DTO.MainBalanceDto>;
+    balances = balances.OrderByDescending(x => x.Date).ToList();
+
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr style="text-align:center">
+                <th scope="col">№</th>
+                <th scope="col">Дата</th>
+                <th scope="col">ФИО</th>
+                <th scope="col">Телефон</th>
+                <th scope="col">Сумма</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int cnt = 0; }
+            @foreach (var w in balances)
+            {
+                cnt++;
+                var user = users.FirstOrDefault(f => f.UserId == w.UserId);
+                <tr style="text-align:center">
+                    <td>@cnt</td>
+                    <td>@w.Date</td>
+                    <td>@user.LastName @user.FirstName @user.MiddleName</td>
+                    <th scope="row">@user.PhoneNumber</th>
+                    <td>@w.Amount</td>
+                </tr>
+                }
+        </tbody>
+    </table>
+}
