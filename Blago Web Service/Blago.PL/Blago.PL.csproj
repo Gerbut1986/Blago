@@ -2296,7 +2296,18 @@
     <Content Include="Content\bootstrap 4\bootstrap.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Images\struct.png" />
     <Content Include="Images\clipboard.png" />
+    <Content Include="Images\Logo\1.png" />
+    <Content Include="Images\Logo\2.png" />
+    <Content Include="Images\Logo\3.png" />
+    <Content Include="Images\Logo\4.png" />
+    <Content Include="Images\Logo\5.png" />
+    <Content Include="Images\Logo\faq1.svg" />
+    <Content Include="Images\Logo\greenSurpr.png" />
+    <Content Include="Images\Logo\ulli.svg" />
+    <Content Include="Images\Logo\ulliStar.svg" />
+    <Content Include="Images\О Компании.png" />
     <Content Include="Images\mainPic.png" />
     <Content Include="Images\product.png" />
     <Content Include="Images\tilda.css" />
@@ -2360,6 +2371,7 @@
     <Content Include="Images\smile2.jpg" />
     <Content Include="Images\think.jpg" />
     <Content Include="Images\Вопросы.png" />
+    <Content Include="Images\Главная.png" />
     <Content Include="Images\Личный кабинет.png" />
     <Content Include="Images\Мотивация.png" />
     <Content Include="Images\Написать.png" />
@@ -2368,6 +2380,7 @@
     <Content Include="Images\Обратная связь.png" />
     <Content Include="Images\Обратнвя связь 2.png" />
     <Content Include="Images\Продукт 1.png" />
+    <Content Include="Images\ПРОДУКТ.png" />
     <Content Include="Images\Фон.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2696,7 +2709,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Images\tilda.js" />
     <Content Include="Scripts\tilda-blocks-page28318684.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

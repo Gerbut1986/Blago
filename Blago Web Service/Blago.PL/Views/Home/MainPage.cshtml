@@ -146,7 +146,7 @@ else if (ViewBag.IsRegDataUpd == true)
         @using (Html.BeginForm())
         {
             <div class="row" style="border: 1px solid #b0ae2c; background-color: #e7e7c0; padding: 33px">
-                <div class="row" style="text-align: right;">
+                <div class="row" style="text-align: right">
                     <div class="col-md-3" style="text-align: left">
                         <h3 style="color: #82822f" class="nav-link">БАЛАНС</h3>
                     </div>
@@ -172,9 +172,9 @@ else if (ViewBag.IsRegDataUpd == true)
                         </div>
                     </div>
 
-                    <div style="" class="col-3">
+                    <div style="margin:0 0 0 0" class="col-3">
                         <h6 style="color: #82822f" class="nav-link">ФИЛЬТР&nbsp;ПО&nbsp;ДАТЕ</h6>
-                        <div style="">
+                        <div >
                             <span>@Html.EditorFor(f => f.From, new { htmlAttributes = new { style = "width: 80px; background-color: #b0ae2c;border: 1px solid #827a7a; color: #262323" } })</span>
                             <span>@Html.EditorFor(f => f.To, new { htmlAttributes = new { style = "width: 80px; background-color: #b0ae2c;border: 1px solid #827a7a; color: #262323" } })</span>
                             @*<span><input type="date" style="width: 80px; background-color: #b0ae2c;border: 1px solid #827a7a; color: #262323" value="" /> </span>*@
@@ -183,92 +183,96 @@ else if (ViewBag.IsRegDataUpd == true)
                     </div>
                 </div>
 
-                <!-- Buttons col: -->
-                <div class="col-md-3" style="display: inline-block">
-                    <div style="display: inline-block; margin-left: 10px">
-                        <button onclick="document.getElementById('balanceForm').style.display='block'" class="btn btn-success" id="ubrm">ПОСМОТРЕТЬ</button>
-                    </div><br />
-                    <div style="margin-top:4px;display: inline-block; margin-left: 10px">
-                        <button onclick="document.getElementById('withdrawForm').style.display='block'" id="ubrm" class="list-group-item">ВЫВЕСТИ</button>
+                <div class="row" style="">
+                    <!-- Buttons col: -->
+                    <div class="col-md-2" style="display: inline-block">
+                        <div style="display: inline-block; margin-left: 10px">
+                            <button onclick="document.getElementById('balanceForm').style.display='block'" class="btn btn-success" id="ubrm">ПОСМОТРЕТЬ</button>
+                        </div><br />
+                        <div style="margin-top:4px;display: inline-block; margin-left: 10px">
+                            <button onclick="document.getElementById('withdrawForm').style.display='block'" id="ubrm" class="list-group-item">ВЫВЕСТИ</button>
+                        </div>
+                    </div>
+
+
+                    <!-- RIGHT SIDDEBAR: -->
+                    <div class="col" style="display: inline-block; text-align: center">
+                        <!-- 1st columns of inputs: -->
+                        <div style="display: inline-block">
+                            <div class="input-group mb-1">
+                                <div class="input-group">
+                                    <input style="text-align: center; border-radius: 0px; color: #82822f;
+border: 1px solid #827a7a;background-color:white;font-weight:bold" class="form-control" type="text" value="1 УРОВЕНЬ" readonly>
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-1">
+                                <div class="input-group">
+                                    <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold " class="form-control" type="text" value="2 УРОВЕНЬ" readonly>
+                                </div>
+                            </div>
+                            <div class="input-group mb-1">
+                                <div class="input-group">
+                                    <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold " class="form-control" type="text" value="3 УРОВЕНЬ" readonly>
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-1">
+                                <div class="input-group">
+                                    <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" class="form-control" type="text" value="4 УРОВЕНЬ" readonly>
+                                </div>
+                            </div>
+                            <div class="input-group mb-1">
+                                <div class="input-group">
+                                    <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" class="form-control" type="text" value="5 УРОВЕНЬ" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2nd columns of inputs: -->
+                        <div style="display: inline-block">
+                            <div class="input-group mb-1">
+                                <div class="input-group">
+                                    <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@l1" readonly>
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-1">
+                                <div class="input-group">
+                                    <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@l2" readonly>
+                                </div>
+                            </div>
+                            <div class="input-group mb-1">
+                                <div class="input-group">
+                                    <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@l3" readonly>
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-1">
+                                <div class="input-group">
+                                    <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@l4" readonly>
+                                </div>
+                            </div>
+                            <div class="input-group mb-1">
+                                <div class="input-group">
+                                    <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@l5" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2" style="">
+                        <!-- 3rd row: Filter button -->
+     
+                   
+                                <button type="submit" name="btn-Filter" class="btn btn-success" 
+                                        style="width:100%;margin:0 0 0 -7px" id="ubrm">
+                                    ВЫПОЛНИТЬ
+                                </button>
+                           
+     
                     </div>
                 </div>
-
-                <!-- RIGHT SIDDEBAR: -->
-                <div class="col" style="display: inline-block; text-align: center">
-                    <!-- 1st columns of inputs: -->
-                    <div style="display: inline-block">
-                        <div class="input-group mb-1">
-                            <div class="input-group">
-                                <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a;background-color:white;font-weight:bold" class="form-control" type="text" value="1 УРОВЕНЬ" readonly>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-1">
-                            <div class="input-group">
-                                <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold " class="form-control" type="text" value="2 УРОВЕНЬ" readonly>
-                            </div>
-                        </div>
-                        <div class="input-group mb-1">
-                            <div class="input-group">
-                                <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold " class="form-control" type="text" value="3 УРОВЕНЬ" readonly>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-1">
-                            <div class="input-group">
-                                <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" class="form-control" type="text" value="4 УРОВЕНЬ" readonly>
-                            </div>
-                        </div>
-                        <div class="input-group mb-1">
-                            <div class="input-group">
-                                <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" class="form-control" type="text" value="5 УРОВЕНЬ" readonly>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2nd columns of inputs: -->
-                    <div style="display: inline-block">
-                        <div class="input-group mb-1">
-                            <div class="input-group">
-                                <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@l1" readonly>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-1">
-                            <div class="input-group">
-                                <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@l2" readonly>
-                            </div>
-                        </div>
-                        <div class="input-group mb-1">
-                            <div class="input-group">
-                                <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@l3" readonly>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-1">
-                            <div class="input-group">
-                                <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@l4" readonly>
-                            </div>
-                        </div>
-                        <div class="input-group mb-1">
-                            <div class="input-group">
-                                <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" type="text" value="@l5" readonly>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3" style="display: inline-block; text-align:center; ">
-                    <!-- 3rd row: Filter button -->
-                    <div style="display:inline-block">
-                        <div class="">
-                            <button type="submit" name="btn-Filter" class="btn btn-success" style="width:200px;margin:0 0 0 30px" id="ubrm">
-                                ВЫПОЛНИТЬ
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    </div>                 
         }
 
         <!-- 2nd Row: Stucture: -->
@@ -276,127 +280,134 @@ else if (ViewBag.IsRegDataUpd == true)
         @{
             var cntMembers = referals.Where(r => r.InvitedBy == user.UserId);
         }
-        <div class="row" style="border: 1px solid #b0ae2c; background-color: #e7e7c0; padding: 33px; margin-top: 10px">
-            <div class="row" style="text-align:right">
-                <div class="col-md-3" style="text-align:left">
-                    <h3 style="color: #82822f" class="nav-link">СТРУКТУРА</h3>
-                </div>
-                <div class="col-md-2" style="">
-                    <h6 style="color: #82822f" class="nav-link">ПРИГЛАШЕНО&nbsp;СУБАГЕНТОВ</h6>
-                    <div style="width: 220px; margin: auto">
-                        <h3 style="text-align:center;color: #82822f;font-weight:bold">
-                            @cntMembers.Count()
-                        </h3>
-                    </div>
-                </div>
-                <div class="col-md-2" style="text-align:left">
-                    <h6 style="color: #82822f" class="nav-link"></h6>
-                    <div style="width: 130px; margin: auto">
-                        <h3 style="text-align:center;color: #82822f;font-weight:bold"></h3>
-                    </div>
-                </div>
-                <div style="text-align:left" class="col-md-3">
-                    <h6 style="color: #82822f" class="nav-link"></h6>
-                    <div style="width: 170px; margin: auto">
-                        <h3 style="text-align:left;color: #82822f;font-weight:bold"></h3>
-                    </div>
-                </div>
-           
+    <div class="row" style="border: 1px solid #b0ae2c; background-color: #e7e7c0; padding: 33px; margin-top: 10px">
+        <div class="row" style="text-align:right">
+            <div class="col-md-3" style="text-align:left">
+                <h3 style="color: #82822f" class="nav-link">СТРУКТУРА</h3>
             </div>
-            <div class="col" style="display: inline-block">
-                <div style="display: inline-block; margin-left: 10px">
-                    <button onclick="document.getElementById('structureForm').style.display='block'" 
-                            id="ubrm" class="btn btn-success">ПОСМОТРЕТЬ</button>
-                </div><br />
-                <div style="margin-top:4px;display: inline-block; margin-left: 10px">
-
+            <div class="col-md-2" style="">
+                <h6 style="color: #82822f" class="nav-link">ПРИГЛАШЕНО&nbsp;СУБАГЕНТОВ</h6>
+                <div style="width: 220px; margin: auto">
+                    <h3 style="text-align:center;color: #82822f;font-weight:bold">
+                        @cntMembers.Count()
+                    </h3>
                 </div>
             </div>
+            <div class="col-md-2" style="text-align:left">
+                <h6 style="color: #82822f" class="nav-link"></h6>
+                <div style="width: 130px; margin: auto">
+                    <h3 style="text-align:center;color: #82822f;font-weight:bold"></h3>
+                </div>
+            </div>
+            <div style="text-align:left" class="col-md-3">
+                <h6 style="color: #82822f" class="nav-link"></h6>
+                <div style="width: 170px; margin: auto">
+                    <h3 style="text-align:left;color: #82822f;font-weight:bold"></h3>
+                </div>
+            </div>
+        </div>
 
-            <!-- RIGHT SIDDEBAR: -->
-            <div class="col" style="display: inline-block; margin: 0 0 0 -500px">
-                <!-- 1st columns of inputs: -->
-                <div style="display: inline-block">
-                    <div class="input-group mb-1">
-                        <div class="input-group">
-                            <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold " 
-                                   class="form-control" type="text" value="1 УРОВЕНЬ" readonly>
-                        </div>
-                    </div>
+        <div class="col-md-2" style="display: inline-block;">
+            <div style="display: inline-block; margin-left: 10px">
+                <button onclick="document.getElementById('structureForm').style.display='block'"
+                        id="ubrm" class="btn btn-success">
+                    ПОСМОТРЕТЬ
+                </button>
+            </div><br />
+            <div style="margin-top:4px;display: inline-block; margin-left: 10px">
 
-                    <div class="input-group mb-1">
-                        <div class="input-group">
-                            <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold " 
-                                   class="form-control" type="text" value="2 УРОВЕНЬ" readonly>
-                        </div>
-                    </div>
+            </div>
+        </div>
 
-                    <div class="input-group mb-1">
-                        <div class="input-group">
-                            <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold " 
-                                   class="form-control" type="text" value="3 УРОВЕНЬ" readonly>
-                        </div>
-                    </div>
-
-                    <div class="input-group mb-1">
-                        <div class="input-group">
-                            <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" 
-                                   class="form-control" type="text" value="4 УРОВЕНЬ" readonly>
-                        </div>
-                    </div>
-
-                    <div class="input-group mb-1">
-                        <div class="input-group">
-                            <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold" 
-                                   class="form-control" type="text" value="5 УРОВЕНЬ" readonly>
-                        </div>
+        <!-- 2nd column: -->
+        <div class="col" style="text-align:center">
+            <!-- 1st sub columns of inputs: -->
+            <div style="display: inline-block">
+                <div class="input-group mb-1">
+                    <div class="input-group">
+                        <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold "
+                               class="form-control" type="text" value="1 УРОВЕНЬ" readonly>
                     </div>
                 </div>
 
-                <!-- 2nd columns of inputs: -->
-                <div style="display:inline-block">
-                    <div class="input-group mb-1">
-                        <div class="input-group">
-                            <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; 
-background-color: white; font-weight: bold" type="text"
-                                   value="@referals.Where(u=>u.InvitedBy == user.UserId).Count()" readonly>
-                        </div>
+                <div class="input-group mb-1">
+                    <div class="input-group">
+                        <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold "
+                               class="form-control" type="text" value="2 УРОВЕНЬ" readonly>
                     </div>
+                </div>
 
-                    <div class="input-group mb-1">
-                        <div class="input-group">
-                            <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; 
-background-color: white; font-weight: bold" type="text"
-                                   value="@level2.Length" readonly>
-                        </div>
+                <div class="input-group mb-1">
+                    <div class="input-group">
+                        <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold "
+                               class="form-control" type="text" value="3 УРОВЕНЬ" readonly>
                     </div>
+                </div>
 
-                    <div class="input-group mb-1">
-                        <div class="input-group">
-                            <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a;
-background-color: white; font-weight: bold" type="text"
-                                   value="@level3.Length" readonly>
-                        </div>
+                <div class="input-group mb-1">
+                    <div class="input-group">
+                        <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold"
+                               class="form-control" type="text" value="4 УРОВЕНЬ" readonly>
                     </div>
+                </div>
 
-                    <div class="input-group mb-1">
-                        <div class="input-group">
-                            <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; 
-background-color: white; font-weight: bold" type="text"
-                                   value="@level4.Length" readonly>
-                        </div>
+                <div class="input-group mb-1">
+                    <div class="input-group">
+                        <input style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; background-color: white; font-weight: bold"
+                               class="form-control" type="text" value="5 УРОВЕНЬ" readonly>
                     </div>
+                </div>
+            </div>
 
-                    <div class="input-group mb-1">
-                        <div class="input-group">
-                            <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a; 
+            <!-- 2nd sub columns of inputs: -->
+            <div style="display:inline-block">
+                <div class="input-group mb-1">
+                    <div class="input-group">
+                        <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a;
 background-color: white; font-weight: bold" type="text"
-                                   value="@level5.Length" readonly>
-                        </div>
+                               value="@referals.Where(u=>u.InvitedBy == user.UserId).Count()" readonly>
+                    </div>
+                </div>
+
+                <div class="input-group mb-1">
+                    <div class="input-group">
+                        <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a;
+background-color: white; font-weight: bold" type="text"
+                               value="@level2.Length" readonly>
+                    </div>
+                </div>
+
+                <div class="input-group mb-1">
+                    <div class="input-group">
+                        <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a;
+background-color: white; font-weight: bold" type="text"
+                               value="@level3.Length" readonly>
+                    </div>
+                </div>
+
+                <div class="input-group mb-1">
+                    <div class="input-group">
+                        <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a;
+background-color: white; font-weight: bold" type="text"
+                               value="@level4.Length" readonly>
+                    </div>
+                </div>
+
+                <div class="input-group mb-1">
+                    <div class="input-group">
+                        <input class="form-control" style="text-align: center; border-radius: 0px; color: #82822f; border: 1px solid #827a7a;
+background-color: white; font-weight: bold" type="text"
+                               value="@level5.Length" readonly>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- 3rd column for an icon: -->
+        <div class="col-md-2" style=" text-align: center;height:95%;width:200px">
+            <img style="margin:0 0 0 0px" src="~/Images/struct.png" width="100%" height="100%" />
+        </div>
+    </div>
 
         <!-- 3rd Row: Products: -->
         <!-- LEFT SIDDEBAR: -->
@@ -415,8 +426,8 @@ background-color: white; font-weight: bold" type="text"
                     {
                         if (i == 1)
                         {
-                            <div class="col" style="margin-top:-30px">
-                                <img src="~/Images/product.png" width="100%" height="" alt="Product @i" />
+                            <div class="col" style="margin-top:-25px">
+                                <img src="~/Images/Logo/greenSurpr.png" width="100%" height="" alt="Product @i" />
                                 <div style="width: 300px; text-align: center ">
                                     <button id="ubrm" href="#" name="btn-buy @i" type="submit" class="btn btn-success">КУПИТЬ</button>
                                 </div>
@@ -425,7 +436,7 @@ background-color: white; font-weight: bold" type="text"
                         else
                         {
                             <div class="col" style="margin-top: -30px; opacity: 0.5">
-                                <img src="~/Images/product.png" width="100%" height="" alt="Product @i" />
+                                <img src="~/Images/Logo/greenSurpr.png" width="100%" height="" alt="Product @i" />
                                 <div style="width:300px;text-align:center">
                                     <button id="ubrm" name="btn-buy @i" href="#" style="" class="btn btn-success" disabled>КУПИТЬ</button>
                                 </div>

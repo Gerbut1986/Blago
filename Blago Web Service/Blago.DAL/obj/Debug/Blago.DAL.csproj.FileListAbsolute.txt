@@ -34,3 +34,15 @@ D:\Рабочий стол УНП\Проект\Blago website\Blago Web Service\B
 D:\Рабочий стол УНП\Проект\Blago website\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.csproj.CopyComplete
 D:\Рабочий стол УНП\Проект\Blago website\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.dll
 D:\Рабочий стол УНП\Проект\Blago website\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.pdb
+D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL\bin\Debug\Blago.DAL.dll.config
+D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL\bin\Debug\Blago.DAL.dll
+D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL\bin\Debug\Blago.DAL.pdb
+D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL\bin\Debug\EntityFramework.dll
+D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL\bin\Debug\EntityFramework.xml
+D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.csproj.AssemblyReference.cache
+D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.csproj.CoreCompileInputs.cache
+D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.csproj.CopyComplete
+D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.dll
+D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.pdb

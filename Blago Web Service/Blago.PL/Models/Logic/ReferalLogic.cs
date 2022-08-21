@@ -1,9 +1,8 @@
 ﻿namespace Blago.PL.Models.Logic
 {
-    using Blago.BLL.DTO;
-    using Blago.PL.Controllers;
-    using System.Collections.Generic;
     using System.Linq;
+    using Blago.BLL.DTO;
+    using System.Collections.Generic;
 
     internal class ReferalLogic
     {
@@ -15,9 +14,10 @@
         static List<ReferalInfo> Level5InfoList { get; set; } = new List<ReferalInfo>();
         #endregion
 
-        private double percentIncome;
+        #region Fields:
         IEnumerable<ApplicationUser> allUsers { get; set; }
         private RefMemberDto FirstReferal { get; set; }
+        #endregion
 
         private readonly ApplicationUser currentUser;
 
