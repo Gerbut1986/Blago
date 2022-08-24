@@ -1,25 +1,346 @@
 ﻿@{
     ViewBag.Title = "Вопросы";
 }
-
-<div class="row">
-    <div class="col" id="img">
+<div>@*style=" background-color: #faf5d3">*@
+    <div class="row">
+        <div class="col" id="img">
+        </div>
     </div>
+
+    <div style="padding:22px" class="row">
+        <br /><br /><br />
+                    <div class="container" id="cnr">
+                        <h1 style="text-align:center;margin-top:50px">Часто задаваемые вопросы</h1>
+                        <br />
+                        <h3 id="privacy" style="text-decoration:none;font-weight:bold">
+                            <div style="display: inline-block;width:50px">
+                                <img src="../../Images/Logo/faq1.svg" />
+                            </div>
+                            <div style="display:inline-block">Как стать агентом по продажам и получать вознаграждение?</div>
+                        </h3>
+                        <Ul style="list-style:none" class="select1">
+                            <li><h4>1. На сайте компании пройдите регистрацию по реферальной ссылке вышестоящего агента, внесите основную информацию о себе.</h4> </li>
+                            <li><h4>2. Получите личный кабинет для отслеживания роста своей структуры и поступлений вознаграждения, а также вывода заработанных средств.</h4> </li>
+                            <li><h4>3. Через личный кабинет совершите покупку продукта компании.</h4> </li>
+                            <li><h4>4. В Личном кабинете, найдите персональную реферальную ссылку, для продаж и регистрации своих субагентов.</h4> </li>
+                            <li>
+                                <h4>
+                                    5. Начинайте презентовать проект, делится ссылкой. Разместите ссылку в ваших аккаунтах в соцсетях,
+                                    на ваших сайтах, вышлите друзьям, знакомым, партнерам или клиентам.
+                                </h4>
+                            </li>
+                            <li><h4>6. Клиент осуществил оплату по вашей ссылке и начал собственные продажи продукта — вы получаете вознаграждение.</h4> </li>
+                        </Ul>
+
+                        <h3 id="cantpass" style="text-decoration:none;font-weight:bold">
+                            <div style="display: inline-block;width:50px">
+                                <img src="../../Images/Logo/faq1.svg" />
+                            </div>
+                            <div style="display:inline-block">Не могу установить пароль?</div>
+                        </h3>
+                        <Ul style="list-style:none" class="select2">
+                            <li>
+                                <h4>
+                                    Пароль пользователя должен отвечать следующим требованиям:
+                                </h4>
+                            </li>
+                            <li>
+                                <h4>
+                                    1. Длина пароля должна быть не менее 8 и не более 14 символов.
+                                </h4>
+                            </li>
+                            <li>
+                                <h4>
+                                    2. Пароль должен состоять из букв латинского алфавита (A-z), арабских цифр (0-9) и специальных символов, приведенных в п. 4 данных требований.
+                                </h4>
+                            </li>
+                            <li>
+                                <h4>
+                                    3. Буквенная часть пароля должна содержать как строчные, так и прописные (заглавные) буквы.
+                                </h4>
+                            </li>
+                            <li>
+                                <h4>
+                                    4. Пароль должен содержать не менее одного из следующих символов:<br />
+                                    ( . , : ; ? ! * + % - < > @@ [ ] { } / \ _ {} $ # ).
+                                </h4>
+                            </li>
+                        </Ul>
+
+                        <h3 id="canentr" style="text-decoration:none;font-weight:bold">
+                            <div style="display: inline-block;width:50px">
+                                <img src="../../Images/Logo/faq1.svg" />
+                            </div>
+                            <div style="display:inline-block">Я забыл свой пароль?</div>
+                        </h3>
+                        <ul style="list-style:none" class="select3">
+                            <li>
+                                <h4>
+                                    На странице авторизации перейдите по ссылке «Забыли пароль?».
+                                    Новый, сгенерированный пароль будет отправлен Вам на почту, указанную при регистрации.
+                                </h4>
+                            </li>
+                        </ul>
+
+                        <h3 id="cant" style="text-decoration:none;font-weight:bold">
+                            <div style="display: inline-block;width:50px">
+                                <img src="../../Images/Logo/faq1.svg" />
+                            </div>
+                            <div style="display:inline-block">Не получается войти в личный кабинет?</div>
+                        </h3>
+                        <ul style="list-style:none" class="select4">
+                            <li>
+                                <h4>
+                                    Отключите VPN на Вашем компьютере, это влияет на корректную работу сайта.
+                                </h4>
+                            </li>
+                        </ul>
+
+                        <h3 id="howmany" style="text-decoration:none;font-weight:bold">
+                            <div style="display: inline-block;width:50px">
+                                <img src="../../Images/Logo/faq1.svg" />
+                            </div>
+                            <div style="display:inline-block">Сколько человек, я лично могу пригласить в проект?</div>
+                        </h3>
+                        <ul style="list-style:none" class="select5">
+                            <li>
+                                <h4>
+                                    Вы можете пригласить в Проект не меньше шести или неограниченное количество желающих стать агентами по продажам.
+                                </h4>
+                            </li>
+                        </ul>
+
+                        <h3 id="howwith" style="text-decoration:none;font-weight:bold">
+                            <div style="display: inline-block;width:50px">
+                                <img src="../../Images/Logo/faq1.svg" />
+                            </div>
+                            <div style="display:inline-block">Как вывести средства?</div>
+                        </h3>
+                        <ul style="list-style:none" class="select6">
+                            <li>
+                                <h4>
+                                    Для вывода средств, перейдите в Личном кабинете в раздел «Вывод средств»,
+                                    заполните форму для вывода, указав свои реквизиты, введите сумму и нажмите «Вывести».
+                                    Вывод средств осуществляется от 5000 гривен в течении 1 часа до 24 часов в рабочие дни.
+                                </h4>
+                            </li>
+                        </ul>
+
+                        <h3 id="commis" style="text-decoration:none;font-weight:bold">
+                            <div style="display: inline-block;width:50px">
+                                <img src="../../Images/Logo/faq1.svg" />
+                            </div>
+                            <div style="display:inline-block">
+                                Взымается ли комиссия за вывод средств из кабинета?
+                            </div>
+                        </h3>
+                        <ul style="list-style:none" class="select7">
+                            <li>
+                                <h4>
+                                    При выводе средств, компания удерживает 2% от суммы выводимых средств.
+                                </h4>
+                            </li>
+                        </ul>
+                    </div>
+    </div>
+
+    <script>
+        ////////////////////////////////////////////// 1 drop down tree
+        var nav = $('#privacy');
+        var selection = $('.select1'); // ol
+        var select = selection.find('li');
+        selection.hide();
+
+        nav.click(function (event) {
+            if (nav.hasClass('active')) {
+                nav.removeClass('active');
+                selection.stop().slideUp(200);
+                select.show();
+            } else {
+                nav.addClass('active');
+                selection.stop().slideDown(200);
+            }
+            event.preventDefault();
+        });
+
+        select.click(function (event) {
+            // updated code to select the current language
+            select.removeClass('active');
+            $(this).addClass('active');
+        });
+        ////////////////////////////////////////////// 2 drop down tree
+        var nav2 = $('#cantpass');
+        var selection2 = $('.select2'); // ol
+        var select2 = selection.find('li');
+        selection2.hide();
+
+        nav2.click(function (event) {
+            if (nav2.hasClass('active')) {
+                nav2.removeClass('active');
+                selection2.stop().slideUp(200);
+                select2.show();
+            } else {
+                nav2.addClass('active');
+                selection2.stop().slideDown(200);
+            }
+            event.preventDefault();
+        });
+
+        select2.click(function (event) {
+            // updated code to select the current language
+            select2.removeClass('active');
+            $(this).addClass('active');
+        }); 
+        ////////////////////////////////////////////// 3 drop down tree
+        var nav3 = $('#canentr');
+        var selection3 = $('.select3'); // ol
+        var select3 = selection.find('li');
+        selection3.hide();
+
+        nav3.click(function (event) {
+            if (nav3.hasClass('active')) {
+                nav3.removeClass('active');
+                selection3.stop().slideUp(200);
+                select3.show();
+            } else {
+                nav3.addClass('active');
+                selection3.stop().slideDown(200);
+            }
+            event.preventDefault();
+        });
+
+        select3.click(function (event) {
+            // updated code to select the current language
+            select3.removeClass('active');
+            $(this).addClass('active');
+        });
+
+        ////////////////////////////////////////////// 4 drop down tree
+        var nav4 = $('#cant');
+        var selection4 = $('.select4'); // ol
+        var select4 = selection.find('li');
+        selection4.hide();
+
+        nav4.click(function (event) {
+            if (nav4.hasClass('active')) {
+                nav4.removeClass('active');
+                selection4.stop().slideUp(200);
+                select4.show();
+            } else {
+                nav4.addClass('active');
+                selection4.stop().slideDown(200);
+            }
+            event4.preventDefault();
+        });
+
+        select4.click(function (event) {
+            // updated code to select the current language
+            select4.removeClass('active');
+            $(this).addClass('active');
+        });
+
+        ////////////////////////////////////////////// 5 drop down tree
+        var nav5 = $('#howmany');
+        var selection5 = $('.select5'); // ol
+        var select5 = selection.find('li');
+        selection5.hide();
+
+        nav5.click(function (event) {
+            if (nav5.hasClass('active')) {
+                nav5.removeClass('active');
+                selection5.stop().slideUp(200);
+                select5.show();
+            } else {
+                nav5.addClass('active');
+                selection5.stop().slideDown(200);
+            }
+            event.preventDefault();
+        });
+
+        select5.click(function (event) {
+            // updated code to select the current language
+            select5.removeClass('active');
+            $(this).addClass('active');
+        });
+        ////////////////////////////////////////////// 6 drop down tree
+        var nav6 = $('#howwith');
+        var selection6 = $('.select6'); // ol
+        var select6 = selection.find('li');
+        selection6.hide();
+
+        nav6.click(function (event) {
+            if (nav6.hasClass('active')) {
+                nav6.removeClass('active');
+                selection6.stop().slideUp(200);
+                select6.show();
+            } else {
+                nav6.addClass('active');
+                selection6.stop().slideDown(200);
+            }
+            event.preventDefault();
+        });
+
+        select6.click(function (event) {
+            // updated code to select the current language
+            select6.removeClass('active');
+            $(this).addClass('active');
+        });
+
+        ////////////////////////////////////////////// 7 drop down tree
+        var nav7 = $('#commis');
+        var selection7 = $('.select7'); // ol
+        var select7 = selection.find('li');
+        selection7.hide();
+
+        nav7.click(function (event) {
+            if (nav7.hasClass('active')) {
+                nav7.removeClass('active');
+                selection7.stop().slideUp(200);
+                select7.show();
+            } else {
+                nav7.addClass('active');
+                selection7.stop().slideDown(200);
+            }
+            event.preventDefault();
+        });
+
+        select7.click(function (event) {
+            // updated code to select the current language
+            select7.removeClass('active');
+            $(this).addClass('active');
+        });
+    </script>
+
+    <style>
+        img {
+            height: 51%;
+            width: 100%;
+        }
+
+        h4 {
+            font-family: Arial;
+        }
+
+        li:before {
+            background-size: 100px;
+            list-style: none;
+        }
+
+        #cnr {
+            font-family: Arial;
+            width: 55%;
+            color: #82822f;
+            font-size: 24pt;
+        }
+
+        #img {
+            margin-top: -10px;
+            height: 400px;
+            min-height: 100%;
+            background-image: url('../../Images/Вопросы.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    </style>
 </div>
-
-
-
-
-
-
-<style>
-    #img {
-        margin-top: -10px;
-        height: 400px;
-        min-height: 100%;
-        background-image: url('../../Images/Вопросы.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-    }
-</style>

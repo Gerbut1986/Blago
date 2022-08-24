@@ -18,7 +18,7 @@
     @*style="background-image:url(../../Images/arms.jpg)"*@
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #b0ae2c">
         <div class="container-fluid" style="background-color: #b0ae2c">
-            @Html.ActionLink("BLAGO", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", style = "font-weight:bold;font-size:x-large;font-family:Arial;color:white;margin-left:100px;padding:9px" })
+            @Html.ActionLink("BLAGOдать", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", style = "font-weight:bold;font-size:x-large;font-family:Arial;color:white;margin-left:100px;padding:9px" })
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -33,16 +33,16 @@
                         @Html.ActionLink("Продукт", "Product", "Sections", null, new { @class = "nav-link", id = "btn" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Мотивация", "Motivation", "Sections", new { @class = "nav-link", id = "btn" })
+                        @Html.ActionLink("Мотивация", "Motivation", "Sections", null, new { @class = "nav-link", id = "btn" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Новости", "News", "Sections", new { @class = "nav-link", id = "btn" })
+                        @Html.ActionLink("Новости", "News", "Sections", null, new { @class = "nav-link", id = "btn" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Вопросы", "Questions", "Sections", new { @class = "nav-link", id = "btn" })
+                        @Html.ActionLink("Вопросы", "Questions", "Sections", null, new { @class = "nav-link", id = "btn" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Обратная связь", "Feedback", "Sections", new { @class = "nav-link", id = "btn" })
+                        @Html.ActionLink("Обратная связь", "Feedback", "Sections", null, new { @class = "nav-link", id = "btn" })
                     </li>
                 </ul>
                 <p class="d-flex">

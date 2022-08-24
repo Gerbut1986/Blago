@@ -12,8 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="@Url.Content("~/Content/AdminPart/LoginForm/theme-bootstrap-login-form-20/css/A.style.css.pagespeed.cf.eQk9-CoeFP.css")">
-    <script nonce="cc73c18c-d00f-4bf9-8a66-7ba3dd21292d">
+   <link rel="stylesheet" href="@Url.Content("~/Content/AdminPart/LoginForm/theme-bootstrap-login-form-20/css/A.style.css")">
+    @*<script nonce="cc73c18c-d00f-4bf9-8a66-7ba3dd21292d">
         (function (w, d) {
             !function (a, e, t, r)
             {
@@ -33,17 +33,19 @@
                             try { a.zarazData["z_" + t.slice(7)] = JSON.parse(e.getItem(t)) }
                             catch { a.zarazData["z_" + t.slice(7)] = e.getItem(t) }
                         })); z.referrerPolicy = "origin";
-                    z.src = "@Url.Content("~/Content/AdminPart/LoginForm/theme-bootstrap-login-form-20/cdn-cgi-zaraz/s.js?z=")" + btoa(encodeURIComponent(JSON.stringify(a.zarazData)));
+                    z.src = "@Url.Content("~/Content/AdminPart/LoginForm/theme-bootstrap-login-form-20/cdn-cgi-zaraz/s.js?z=")" +
+                        btoa(encodeURIComponent(JSON.stringify(a.zarazData)));
                     t.parentNode.insertBefore(z, t)
                 };["complete", "interactive"].includes(e.readyState) ? zaraz.init() : a.addEventListener("DOMContentLoaded", zaraz.init)
             }(w, d, 0, "script");
-        })(window, document);</script>
+        })(window, document);</script>*@
 </head>
 
-<body class="img js-fullheight" id="bg" style="background-image:src(@Url.Content("~/Images/register.jpg")">
+<body class="" id="" style="">
+@*background-image:src(@Url.Content("~/Images/register.jpg")*@
     <style>
         #bg {
-            background: url(../../Images/login.jpg) no-repeat fixed;
+            /*background: url(../../Images/login.jpg) no-repeat fixed;*/
             width: 100%;
         }
 

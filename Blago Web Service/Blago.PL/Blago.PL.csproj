@@ -2296,6 +2296,14 @@
     <Content Include="Content\bootstrap 4\bootstrap.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Images\66.png" />
+    <Content Include="Images\Fonts\222222.png" />
+    <Content Include="Images\Fonts\Треугольник.png" />
+    <Content Include="Images\Fonts\Треугольник2.png" />
+    <Content Include="Images\Fonts\Треугольник3.png" />
+    <Content Include="Images\Logo\favicon.ico" />
+    <Content Include="Images\Logo\Главная.png" />
+    <Content Include="Images\Logo\Написать.png" />
     <Content Include="Images\struct.png" />
     <Content Include="Images\clipboard.png" />
     <Content Include="Images\Logo\1.png" />
@@ -2371,7 +2379,6 @@
     <Content Include="Images\smile2.jpg" />
     <Content Include="Images\think.jpg" />
     <Content Include="Images\Вопросы.png" />
-    <Content Include="Images\Главная.png" />
     <Content Include="Images\Личный кабинет.png" />
     <Content Include="Images\Мотивация.png" />
     <Content Include="Images\Написать.png" />
@@ -2379,7 +2386,6 @@
     <Content Include="Images\О проекте.png" />
     <Content Include="Images\Обратная связь.png" />
     <Content Include="Images\Обратнвя связь 2.png" />
-    <Content Include="Images\Продукт 1.png" />
     <Content Include="Images\ПРОДУКТ.png" />
     <Content Include="Images\Фон.jpg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -2388,7 +2394,6 @@
     <Content Include="Content\bootstrap 4\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap 4\bootstrap.css.map" />
     <Content Include="Content\bootstrap 4\bootstrap.min.css.map" />
-    <Content Include="Content\AdminPart\LoginForm\theme-bootstrap-login-form-20\images\xbg.jpg.pagespeed.ic.tiVxeakBSd.webp" />
     <Content Include="Content\AdminPart\AdminPanel\build\config\.eslintrc.json" />
     <Content Include="Content\AdminPart\AdminPanel\build\npm\.eslintrc.json" />
     <Content Include="Content\AdminPart\AdminPanel\build\scss\adminlte.scss" />
@@ -2697,6 +2702,7 @@
     <Content Include="Content\AdminPart\AdminPanel\plugins\summernote\summernote.min.js.map" />
     <Content Include="Content\AdminPart\AdminPanel\plugins\toastr\toastr.js.map" />
     <Content Include="Content\Tilda\ff" />
+    <Content Include="Content\AdminPart\LoginForm\theme-bootstrap-login-form-20\images\xbg.jpg.pagespeed.ic.tiVxeakBSd.webp" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\JavaScript.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
