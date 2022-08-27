@@ -4,7 +4,7 @@
     var balances = ViewBag.MainBalances as List<Blago.BLL.DTO.MainBalanceDto>;
     balances = balances.OrderByDescending(x => x.Date).ToList();
 
-    <table class="table table-dark table-hover">
+    <table class="table table-dark table-hover" style="">
         <thead>
             <tr style="text-align:center">
                 <th scope="col">№</th>
@@ -23,7 +23,7 @@
                 <tr style="text-align:center">
                     <td>@cnt</td>
                     <td>@w.Date</td>
-                    <td>@user.LastName @user.FirstName @user.MiddleName</td>
+                    <td>@user.LastName @user.FirstName</td>
                     <th scope="row">@user.PhoneNumber</th>
                     <td>@w.Amount</td>
                 </tr>

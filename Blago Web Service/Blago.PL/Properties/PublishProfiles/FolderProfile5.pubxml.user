@@ -15,10 +15,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/09/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/Blago.BLL.dll">
-      <publishTime>08/23/2022 14:12:48</publishTime>
+      <publishTime>08/24/2022 13:43:33</publishTime>
     </File>
     <File Include="bin/Blago.BLL.pdb">
-      <publishTime>08/23/2022 14:12:48</publishTime>
+      <publishTime>08/24/2022 13:43:33</publishTime>
     </File>
     <File Include="bin/Blago.DAL.dll">
       <publishTime>08/21/2022 14:40:33</publishTime>
@@ -30,10 +30,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/21/2022 14:40:33</publishTime>
     </File>
     <File Include="bin/Blago.PL.dll">
-      <publishTime>08/23/2022 14:14:13</publishTime>
+      <publishTime>08/24/2022 13:43:37</publishTime>
     </File>
     <File Include="bin/Blago.PL.pdb">
-      <publishTime>08/23/2022 14:14:13</publishTime>
+      <publishTime>08/24/2022 13:43:37</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>04/16/2020 20:38:42</publishTime>
@@ -7643,6 +7643,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Global.asax">
       <publishTime>11/07/2022 23:12:26</publishTime>
     </File>
+    <File Include="Images/66.png">
+      <publishTime>08/23/2022 19:30:50</publishTime>
+    </File>
     <File Include="Images/arms.jpg">
       <publishTime>07/12/2022 16:55:55</publishTime>
     </File>
@@ -7654,6 +7657,18 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Images/clipboard.png">
       <publishTime>07/29/2022 13:08:53</publishTime>
+    </File>
+    <File Include="Images/Fonts/222222.png">
+      <publishTime>08/23/2022 16:09:23</publishTime>
+    </File>
+    <File Include="Images/Fonts/Треугольник.png">
+      <publishTime>08/23/2022 15:49:32</publishTime>
+    </File>
+    <File Include="Images/Fonts/Треугольник2.png">
+      <publishTime>08/23/2022 15:49:32</publishTime>
+    </File>
+    <File Include="Images/Fonts/Треугольник3.png">
+      <publishTime>08/23/2022 15:49:32</publishTime>
     </File>
     <File Include="Images/freandchips.jpg">
       <publishTime>07/12/2022 16:56:31</publishTime>
@@ -7708,6 +7723,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Images/Logo/ulliStar.svg">
       <publishTime>08/20/2022 14:27:15</publishTime>
+    </File>
+    <File Include="Images/Logo/Главная.png">
+      <publishTime>08/23/2022 18:44:39</publishTime>
     </File>
     <File Include="Images/Logo/Написать.png">
       <publishTime>08/21/2022 22:38:04</publishTime>
@@ -7869,7 +7887,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/19/2022 02:32:38</publishTime>
     </File>
     <File Include="Views/Admin/_829528a_441d_484m_862i_22475963ffdn.cshtml">
-      <publishTime>07/26/2022 13:16:25</publishTime>
+      <publishTime>08/24/2022 22:40:12</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>07/11/2022 23:12:25</publishTime>
@@ -7878,10 +7896,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/11/2022 23:12:25</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>08/23/2022 12:59:12</publishTime>
+      <publishTime>08/23/2022 23:57:05</publishTime>
     </File>
     <File Include="Views/Home/MainPage.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>08/24/2022 03:57:39</publishTime>
     </File>
     <File Include="Views/Manage/AddPhoneNumber.cshtml">
       <publishTime>11/07/2022 23:13:53</publishTime>
@@ -7902,31 +7920,31 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/07/2022 23:13:53</publishTime>
     </File>
     <File Include="Views/PartialViews/BalancesPart.cshtml">
-      <publishTime>07/26/2022 15:35:32</publishTime>
+      <publishTime>08/24/2022 22:43:16</publishTime>
     </File>
     <File Include="Views/PartialViews/MessagesPart.cshtml">
-      <publishTime>07/26/2022 15:36:14</publishTime>
+      <publishTime>08/24/2022 22:40:39</publishTime>
     </File>
     <File Include="Views/PartialViews/RequestsPart.cshtml">
-      <publishTime>07/26/2022 15:36:50</publishTime>
+      <publishTime>08/24/2022 22:40:49</publishTime>
     </File>
     <File Include="Views/PartialViews/UserInfoPart.cshtml">
-      <publishTime>07/26/2022 15:36:42</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/Sections/About.cshtml">
-      <publishTime>08/23/2022 13:08:18</publishTime>
+      <publishTime>08/24/2022 02:43:17</publishTime>
     </File>
     <File Include="Views/Sections/Feedback.cshtml">
       <publishTime>04/08/2022 12:10:11</publishTime>
     </File>
     <File Include="Views/Sections/Motivation.cshtml">
-      <publishTime>04/08/2022 11:57:42</publishTime>
+      <publishTime>08/24/2022 03:51:44</publishTime>
     </File>
     <File Include="Views/Sections/News.cshtml">
       <publishTime>04/08/2022 11:58:53</publishTime>
     </File>
     <File Include="Views/Sections/Product.cshtml">
-      <publishTime>08/23/2022 13:10:04</publishTime>
+      <publishTime>08/23/2022 16:17:28</publishTime>
     </File>
     <File Include="Views/Sections/Questions.cshtml">
       <publishTime>08/23/2022 13:09:44</publishTime>
@@ -7938,7 +7956,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/11/2022 23:13:53</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>08/23/2022 13:01:52</publishTime>
+      <publishTime>08/24/2022 00:45:43</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>04/08/2022 12:42:26</publishTime>

@@ -226,7 +226,7 @@
                              var withdrawals = ViewBag.Withdrawals as List<Blago.BLL.DTO.WithdrawDto>;
                              int balCnt = 0, withCnt = 0;
                              foreach (var u in users) { balCnt += u.Balance; }
-                             foreach(var w in withdrawals) { withCnt += w.Amount; }
+                             foreach(var w in withdrawals) { withCnt += int.Parse(w.Amount); }
                             }
                         <ul class="nav nav-treeview">
                             @using (Html.BeginForm())
@@ -500,7 +500,7 @@
                     <span onclick="document.getElementById('msg-det').style.display='none'"
                           class="w3-button w3-display-topright">&times;</span>
                     <h2 style="text-align:center;font-family:'Palatino Linotype'">
-                        Сообщение от @sender.LastName @sender.FirstName[0] . @sender.MiddleName[0] .
+                        Сообщение от @sender.LastName @sender.FirstName[0].
                     </h2>
                 </header>
                 <div class="w3-container">
@@ -554,7 +554,8 @@
                               
                                 @foreach (var w in ViewBag.Withdrawals)
                                 {
-                                    withCnt += w.Amount;
+                                    var wo1st = w.Amount.Remove(0, 1);
+                                    withCnt += int.Parse(wo1st);
                                 }
                                 <div class="info-box-content">
                                     <span class="info-box-text">Вывод средств</span>
@@ -630,25 +631,25 @@
                                         <!--- Здесь будут подставлятся частичные представления  -->
                                         @if (ViewBag.PartialView == "UserInfoPart")
                                             {
-                                        <div class="" style="">
+                                        <div class="" style="overflow: auto; width: 100% ">
                                             @Html.Partial("~/Views/PartialViews/UserInfoPart.cshtml")
                                         </div>
                                             }
                                             else if (ViewBag.PartialView == "BalancePart")
                                             {
-                                        <div style="">
+                                        <div style="overflow: auto; width: 100% ">
                                             @Html.Partial("~/Views/PartialViews/BalancesPart.cshtml")
                                         </div>
                                             }
                                             else if (ViewBag.PartialView == "RequestsPart")
                                             {
-                                        <div style="">
+                                        <div style="overflow: auto; width: 100% ">
                                             @Html.Partial("~/Views/PartialViews/RequestsPart.cshtml")
                                         </div>
                                             }
                                             else if (ViewBag.PartialView == "MessagesPart")
                                             {
-                                        <div style="">
+                                        <div style="overflow: auto; width: 100% ">
                                             @Html.Partial("~/Views/PartialViews/MessagesPart.cshtml")
                                         </div>
                                             }

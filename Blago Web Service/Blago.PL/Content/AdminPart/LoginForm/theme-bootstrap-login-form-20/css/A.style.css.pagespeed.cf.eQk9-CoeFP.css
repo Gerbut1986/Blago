@@ -10,16 +10,16 @@
     --teal: #20c997;
     --cyan: #17a2b8;
     --white: #fff;
-    --gray: #6c757d;
-    --gray-dark: #343a40;
+    --gray: #fff;
+    --gray-dark: #fff;
     --primary: #007bff;
-    --secondary: #6c757d;
+    --secondary: #fff;
     --success: #28a745;
     --info: #17a2b8;
     --warning: #ffc107;
     --danger: #dc3545;
     --light: #f8f9fa;
-/*    --dark: #343a40;*/
+/*    --dark: #fff;*/
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
@@ -45,7 +45,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
     display: block
 }
 
-body {
+#fff {
     margin: 0;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     font-size: 1rem;
@@ -194,7 +194,7 @@ table {
 caption {
     padding-top: .75rem;
     padding-bottom: .75rem;
-    color: #6c757d;
+    color: #fff;
     text-align: left;
     caption-side: bottom
 }
@@ -432,7 +432,7 @@ mark, .mark {
 .blockquote-footer {
     display: block;
     font-size: 80%;
-    color: #6c757d
+    color: #fff
 }
 
     .blockquote-footer::before {
@@ -464,7 +464,7 @@ mark, .mark {
 
 .figure-caption {
     font-size: 90%;
-    color: #6c757d
+    color: #fff
 }
 
 code {
@@ -481,7 +481,7 @@ kbd {
     padding: .2rem .4rem;
     font-size: 87.5%;
     color: #fff;
-    background-color: #212529;
+    background-color: #fff;
     border-radius: .2rem
 }
 
@@ -1791,8 +1791,8 @@ pre {
         border-bottom: 2px solid #dee2e6
     }
 
-    .table tbody + tbody {
-        border-top: 2px solid #dee2e6
+    .table t#fff + t#fff {
+        border-top: 2px solid #fff
     }
 
 .table-sm th, .table-sm td {
@@ -1811,25 +1811,25 @@ pre {
         border-bottom-width: 2px
     }
 
-.table-borderless th, .table-borderless td, .table-borderless thead th, .table-borderless tbody + tbody {
+.table-borderless th, .table-borderless td, .table-borderless thead th, .table-borderless t#fff + t#fff {
     border: 0
 }
 
-.table-striped tbody tr:nth-of-type(odd) {
+.table-striped t#fff tr:nth-of-type(odd) {
     background-color: rgba(0,0,0,.05)
 }
 
-.table-hover tbody tr:hover {
+.table-hover t#fff tr:hover {
     color: #212529;
     background-color: rgba(0,0,0,.075)
 }
 
 .table-primary, .table-primary > th, .table-primary > td {
-    background-color: #b8daff
+    background-color: #fff
 }
 
-    .table-primary th, .table-primary td, .table-primary thead th, .table-primary tbody + tbody {
-        border-color: #7abaff
+    .table-primary th, .table-primary td, .table-primary thead th, .table-primary t#fff + t#fff {
+        border-color: #fff;
     }
 
 .table-hover .table-primary:hover {
@@ -1841,27 +1841,27 @@ pre {
     }
 
 .table-secondary, .table-secondary > th, .table-secondary > td {
-    background-color: #d6d8db
+    background-color: #d6d8dd
 }
 
-    .table-secondary th, .table-secondary td, .table-secondary thead th, .table-secondary tbody + tbody {
-        border-color: #b3b7bb
+    .table-secondary th, .table-secondary td, .table-secondary thead th, .table-secondary t#fff + t#fff {
+        border-color: #fff
     }
 
 .table-hover .table-secondary:hover {
-    background-color: #c8cbcf
+    background-color: #fff
 }
 
     .table-hover .table-secondary:hover > td, .table-hover .table-secondary:hover > th {
-        background-color: #c8cbcf
+        background-color: #fff
     }
 
 .table-success, .table-success > th, .table-success > td {
-    background-color: #c3e6cb
+    background-color: #fff
 }
 
-    .table-success th, .table-success td, .table-success thead th, .table-success tbody + tbody {
-        border-color: #8fd19e
+    .table-success th, .table-success td, .table-success thead th, .table-success t#fff + t#fff {
+        border-color: #fff
     }
 
 .table-hover .table-success:hover {
@@ -1876,7 +1876,7 @@ pre {
     background-color: #bee5eb
 }
 
-    .table-info th, .table-info td, .table-info thead th, .table-info tbody + tbody {
+    .table-info th, .table-info td, .table-info thead th, .table-info t#fff + t#fff {
         border-color: #86cfda
     }
 
@@ -1892,7 +1892,7 @@ pre {
     background-color: #ffeeba
 }
 
-    .table-warning th, .table-warning td, .table-warning thead th, .table-warning tbody + tbody {
+    .table-warning th, .table-warning td, .table-warning thead th, .table-warning t#fff + t#fff {
         border-color: #ffdf7e
     }
 
@@ -1908,7 +1908,7 @@ pre {
     background-color: #f5c6cb
 }
 
-    .table-danger th, .table-danger td, .table-danger thead th, .table-danger tbody + tbody {
+    .table-danger th, .table-danger td, .table-danger thead th, .table-danger t#fff + t#fff {
         border-color: #ed969e
     }
 
@@ -1924,7 +1924,7 @@ pre {
     background-color: #fdfdfe
 }
 
-    .table-light th, .table-light td, .table-light thead th, .table-light tbody + tbody {
+    .table-light th, .table-light td, .table-light thead th, .table-light t#fff + t#fff {
         border-color: #fbfcfc
     }
 
@@ -1940,7 +1940,7 @@ pre {
     background-color: #c6c8ca
 }
 
-    .table-dark th, .table-dark td, .table-dark thead th, .table-dark tbody + tbody {
+    .table-dark th, .table-dark td, .table-dark thead th, .table-dark t#fff + t#fff {
         border-color: #95999c
     }
 
@@ -1966,7 +1966,7 @@ pre {
 
 .table .thead-dark th {
     color: #fff;
-    background-color: #343a40;
+    background-color: #fff;
     border-color: #454d55
 }
 
@@ -1978,7 +1978,7 @@ pre {
 
 .table-dark {
     color: #fff;
-    background-color: #343a40
+    background-color: #fff
 }
 
     .table-dark th, .table-dark td, .table-dark thead th {
@@ -1989,11 +1989,11 @@ pre {
         border: 0
     }
 
-    .table-dark.table-striped tbody tr:nth-of-type(odd) {
+    .table-dark.table-striped t#fff tr:nth-of-type(odd) {
         background-color: rgba(255,255,255,.05)
     }
 
-    .table-dark.table-hover tbody tr:hover {
+    .table-dark.table-hover t#fff tr:hover {
         color: #fff;
         background-color: rgba(255,255,255,.075)
     }
@@ -2104,22 +2104,22 @@ pre {
 }
 
 .form-control::-webkit-input-placeholder {
-    color: #6c757d;
+    color: #fff;
     opacity: 1
 }
 
 .form-control:-ms-input-placeholder {
-    color: #6c757d;
+    color: #fff;
     opacity: 1
 }
 
 .form-control::-ms-input-placeholder {
-    color: #6c757d;
+    color: #fff;
     opacity: 1
 }
 
 .form-control::placeholder {
-    color: #6c757d;
+    color: #fff;
     opacity: 1
 }
 
@@ -2239,7 +2239,7 @@ textarea.form-control {
 }
 
     .form-check-input:disabled ~ .form-check-label {
-        color: #6c757d
+        color: #fff
     }
 
 .form-check-label {
@@ -2705,14 +2705,14 @@ a.btn.disabled, fieldset:disabled a.btn {
 
 .btn-secondary {
     color: #fff;
-    background-color: #6c757d;
-    border-color: #6c757d
+    background-color: #fff;
+    border-color: #fff
 }
 
     .btn-secondary:hover {
         color: #fff;
         background-color: #5a6268;
-        border-color: #545b62
+        border-color: #fff
     }
 
     .btn-secondary:focus, .btn-secondary.focus {
@@ -2722,14 +2722,14 @@ a.btn.disabled, fieldset:disabled a.btn {
 
     .btn-secondary.disabled, .btn-secondary:disabled {
         color: #fff;
-        background-color: #6c757d;
-        border-color: #6c757d
+        background-color: #fff;
+        border-color: #fff
     }
 
     .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,
     .show > .btn-secondary.dropdown-toggle {
         color: #fff;
-        background-color: #545b62;
+        background-color: #fff;
         border-color: #4e555b
     }
 
@@ -2921,14 +2921,14 @@ a.btn.disabled, fieldset:disabled a.btn {
 
 .btn-dark {
     color: #fff;
-    background-color: #343a40;
-    border-color: #343a40
+    background-color: #fff;
+    border-color: #fff
 }
 
     .btn-dark:hover {
         color: #fff;
         background-color: #23272b;
-        border-color: #1d2124
+        border-color: #fff
     }
 
     .btn-dark:focus, .btn-dark.focus {
@@ -2938,14 +2938,14 @@ a.btn.disabled, fieldset:disabled a.btn {
 
     .btn-dark.disabled, .btn-dark:disabled {
         color: #fff;
-        background-color: #343a40;
-        border-color: #343a40
+        background-color: #fff;
+        border-color: #fff
     }
 
     .btn-dark:not(:disabled):not(.disabled):active, .btn-dark:not(:disabled):not(.disabled).active,
     .show > .btn-dark.dropdown-toggle {
         color: #fff;
-        background-color: #1d2124;
+        background-color: #fff;
         border-color: #171a1d
     }
 
@@ -2990,14 +2990,14 @@ a.btn.disabled, fieldset:disabled a.btn {
         }
 
 .btn-outline-secondary {
-    color: #6c757d;
-    border-color: #6c757d
+    color: #fff;
+    border-color: #fff
 }
 
     .btn-outline-secondary:hover {
         color: #fff;
-        background-color: #6c757d;
-        border-color: #6c757d
+        background-color: #fff;
+        border-color: #fff
     }
 
     .btn-outline-secondary:focus, .btn-outline-secondary.focus {
@@ -3006,15 +3006,15 @@ a.btn.disabled, fieldset:disabled a.btn {
     }
 
     .btn-outline-secondary.disabled, .btn-outline-secondary:disabled {
-        color: #6c757d;
+        color: #fff;
         background-color: transparent
     }
 
     .btn-outline-secondary:not(:disabled):not(.disabled):active, .btn-outline-secondary:not(:disabled):not(.disabled).active,
     .show > .btn-outline-secondary.dropdown-toggle {
         color: #fff;
-        background-color: #6c757d;
-        border-color: #6c757d
+        background-color: #fff;
+        border-color: #fff
     }
 
         .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
@@ -3194,14 +3194,14 @@ a.btn.disabled, fieldset:disabled a.btn {
         }
 
 .btn-outline-dark {
-    color: #343a40;
-    border-color: #343a40
+    color: #fff;
+    border-color: #fff
 }
 
     .btn-outline-dark:hover {
         color: #fff;
-        background-color: #343a40;
-        border-color: #343a40
+        background-color: #fff;
+        border-color: #fff
     }
 
     .btn-outline-dark:focus, .btn-outline-dark.focus {
@@ -3210,15 +3210,15 @@ a.btn.disabled, fieldset:disabled a.btn {
     }
 
     .btn-outline-dark.disabled, .btn-outline-dark:disabled {
-        color: #343a40;
+        color: #fff;
         background-color: transparent
     }
 
     .btn-outline-dark:not(:disabled):not(.disabled):active, .btn-outline-dark:not(:disabled):not(.disabled).active,
     .show > .btn-outline-dark.dropdown-toggle {
         color: #fff;
-        background-color: #343a40;
-        border-color: #343a40
+        background-color: #fff;
+        border-color: #fff
     }
 
         .btn-outline-dark:not(:disabled):not(.disabled):active:focus, .btn-outline-dark:not(:disabled):not(.disabled).active:focus,
@@ -3245,7 +3245,7 @@ a.btn.disabled, fieldset:disabled a.btn {
     }
 
     .btn-link:disabled, .btn-link.disabled {
-        color: #6c757d;
+        color: #fff;
         pointer-events: none
     }
 
@@ -3540,7 +3540,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     }
 
     .dropdown-item.disabled, .dropdown-item:disabled {
-        color: #6c757d;
+        color: #fff;
         pointer-events: none;
         background-color: transparent
     }
@@ -3554,7 +3554,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     padding: .5rem 1.5rem;
     margin-bottom: 0;
     font-size: .875rem;
-    color: #6c757d;
+    color: #fff;
     white-space: nowrap
 }
 
@@ -3895,7 +3895,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     }
 
     .custom-control-input:disabled ~ .custom-control-label {
-        color: #6c757d
+        color: #fff
     }
 
         .custom-control-input:disabled ~ .custom-control-label::before {
@@ -4051,7 +4051,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     }
 
     .custom-select:disabled {
-        color: #6c757d;
+        color: #fff;
         background-color: #e9ecef
     }
 
@@ -4356,7 +4356,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     }
 
     .nav-link.disabled {
-        color: #6c757d;
+        color: #fff;
         pointer-events: none;
         cursor: default
     }
@@ -4380,7 +4380,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
         }
 
         .nav-tabs .nav-link.disabled {
-            color: #6c757d;
+            color: #fff;
             background-color: transparent;
             border-color: transparent
         }
@@ -4915,7 +4915,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
         border-bottom-left-radius: .25rem
     }
 
-.card-body {
+.card-#fff {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
@@ -5180,7 +5180,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     .breadcrumb-item + .breadcrumb-item::before {
         display: inline-block;
         padding-right: .5rem;
-        color: #6c757d;
+        color: #fff;
         content: "/"
     }
 
@@ -5193,7 +5193,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     }
 
 .breadcrumb-item.active {
-    color: #6c757d
+    color: #fff
 }
 
 .pagination {
@@ -5250,7 +5250,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 
 .page-item.disabled .page-link {
-    color: #6c757d;
+    color: #fff;
     pointer-events: none;
     cursor: auto;
     background-color: #fff;
@@ -5351,12 +5351,12 @@ a.badge-primary:focus, a.badge-primary.focus {
 
 .badge-secondary {
     color: #fff;
-    background-color: #6c757d
+    background-color: #fff
 }
 
 a.badge-secondary:hover, a.badge-secondary:focus {
     color: #fff;
-    background-color: #545b62
+    background-color: #fff
 }
 
 a.badge-secondary:focus, a.badge-secondary.focus {
@@ -5447,12 +5447,12 @@ a.badge-light:focus, a.badge-light.focus {
 
 .badge-dark {
     color: #fff;
-    background-color: #343a40
+    background-color: #fff
 }
 
 a.badge-dark:hover, a.badge-dark:focus {
     color: #fff;
-    background-color: #1d2124
+    background-color: #fff
 }
 
 a.badge-dark:focus, a.badge-dark.focus {
@@ -5707,7 +5707,7 @@ a.badge-dark:focus, a.badge-dark.focus {
     align-items: flex-start
 }
 
-.media-body {
+.media-#fff {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1
@@ -5764,7 +5764,7 @@ a.badge-dark:focus, a.badge-dark.focus {
     }
 
     .list-group-item.disabled, .list-group-item:disabled {
-        color: #6c757d;
+        color: #fff;
         pointer-events: none;
         background-color: #fff
     }
@@ -6092,14 +6092,14 @@ a.close.disabled {
     max-width: 350px;
     overflow: hidden;
     font-size: .875rem;
-    background-color: rgba(255,255,255,.85);
+    background-color: #fff;
     background-clip: padding-box;
     border: 1px solid rgba(0,0,0,.1);
     -webkit-box-shadow: 0 .25rem .75rem rgba(0,0,0,.1);
     box-shadow: 0 .25rem .75rem rgba(0,0,0,.1);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    opacity: 0;
+    opacity:1 ;
     border-radius: .25rem
 }
 
@@ -6128,13 +6128,13 @@ a.close.disabled {
     -ms-flex-align: center;
     align-items: center;
     padding: .25rem .75rem;
-    color: #6c757d;
+    color: #fff;
     background-color: rgba(255,255,255,.85);
     background-clip: padding-box;
     border-bottom: 1px solid rgba(0,0,0,.05)
 }
 
-.toast-body {
+.toast-#fff {
     padding: .75rem
 }
 
@@ -6208,7 +6208,7 @@ a.close.disabled {
         flex-shrink: 0
     }
 
-    .modal-dialog-scrollable .modal-body {
+    .modal-dialog-scrollable .modal-#fff {
         overflow-y: auto
     }
 
@@ -6309,7 +6309,7 @@ a.close.disabled {
     line-height: 1.5
 }
 
-.modal-body {
+.modal-#fff {
     position: relative;
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
@@ -6655,9 +6655,9 @@ a.close.disabled {
         display: none
     }
 
-.popover-body {
+.popover-#fff {
     padding: .5rem .75rem;
-    color: #212529
+    color: #fff
 }
 
 .carousel {
@@ -6982,11 +6982,11 @@ a.bg-primary:hover, a.bg-primary:focus, button.bg-primary:hover, button.bg-prima
 }
 
 .bg-secondary {
-    background-color: #6c757d !important
+    background-color: #fff !important
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus, button.bg-secondary:hover, button.bg-secondary:focus {
-    background-color: #545b62 !important
+    background-color: #fff !important
 }
 
 .bg-success {
@@ -7030,11 +7030,11 @@ a.bg-light:hover, a.bg-light:focus, button.bg-light:hover, button.bg-light:focus
 }
 
 .bg-dark {
-    background-color: #343a40 !important
+    background-color: #fff !important
 }
 
 a.bg-dark:hover, a.bg-dark:focus, button.bg-dark:hover, button.bg-dark:focus {
-    background-color: #1d2124 !important
+    background-color: #fff !important
 }
 
 .bg-white {
@@ -7046,7 +7046,7 @@ a.bg-dark:hover, a.bg-dark:focus, button.bg-dark:hover, button.bg-dark:focus {
 }
 
 .border {
-    border: 1px solid #dee2e6 !important
+    border: 1px solid #fff !important
 }
 
 .border-top {
@@ -7090,7 +7090,7 @@ a.bg-dark:hover, a.bg-dark:focus, button.bg-dark:hover, button.bg-dark:focus {
 }
 
 .border-secondary {
-    border-color: #6c757d !important
+    border-color: #fff !important
 }
 
 .border-success {
@@ -7114,7 +7114,7 @@ a.bg-dark:hover, a.bg-dark:focus, button.bg-dark:hover, button.bg-dark:focus {
 }
 
 .border-dark {
-    border-color: #343a40 !important
+    border-color: #fff !important
 }
 
 .border-white {
@@ -10619,7 +10619,7 @@ a.text-primary:hover, a.text-primary:focus {
 }
 
 .text-secondary {
-    color: #6c757d !important
+    color: #fff !important
 }
 
 a.text-secondary:hover, a.text-secondary:focus {
@@ -10667,19 +10667,19 @@ a.text-light:hover, a.text-light:focus {
 }
 
 .text-dark {
-    color: #343a40 !important
+    color: #fff !important
 }
 
 a.text-dark:hover, a.text-dark:focus {
     color: #121416 !important
 }
 
-.text-body {
+.text-#fff {
     color: #212529 !important
 }
 
 .text-muted {
-    color: #6c757d !important
+    color: #fff !important
 }
 
 .text-black-50 {
@@ -10764,7 +10764,7 @@ a.text-dark:hover, a.text-dark:focus {
         size: a3;
     }
 
-    body {
+    #fff {
         min-width: 992px !important
     }
 
@@ -10789,15 +10789,15 @@ a.text-dark:hover, a.text-dark:focus {
         }
 
     .table-bordered th, .table-bordered td {
-        border: 1px solid #dee2e6 !important
+        border: 1px solid #fff !important
     }
 
     .table-dark {
         color: inherit
     }
 
-        .table-dark th, .table-dark td, .table-dark thead th, .table-dark tbody + tbody {
-            border-color: #dee2e6
+        .table-dark th, .table-dark td, .table-dark thead th, .table-dark t#fff + t#fff {
+            border-color: #fff
         }
 
     .table .thead-dark th {
@@ -10806,34 +10806,31 @@ a.text-dark:hover, a.text-dark:focus {
     }
 }
 
-body {
+#fff {
     font-family: "Lato",Arial,sans-serif;
     font-size: 16px;
     line-height: 1.8;
     font-weight: normal;
-    color: gray;
-    position: relative;
-    z-index: 0;
+    color: #fff;
+ 
     padding: 0
 }
 
-    body:after {
+    #fff:after {
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         content: '';
-        background: #000;
-        opacity: .3;
-        z-index: -1
+        background: #fff;
     }
 
 a {
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
     transition: .3s all ease;
-    color: #fbceb5
+    color: #fff
 }
 
     a:hover, a:focus {
@@ -10851,7 +10848,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
 }
 
 .bg-primary {
-    background: #fbceb5 !important
+    background: #fff !important
 }
 
 .ftco-section {

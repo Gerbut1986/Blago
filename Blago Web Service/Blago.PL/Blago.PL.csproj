@@ -2298,11 +2298,13 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Images\66.png" />
     <Content Include="Images\Fonts\222222.png" />
+    <Content Include="Images\Fonts\Таблица.png" />
     <Content Include="Images\Fonts\Треугольник.png" />
     <Content Include="Images\Fonts\Треугольник2.png" />
     <Content Include="Images\Fonts\Треугольник3.png" />
     <Content Include="Images\Logo\favicon.ico" />
     <Content Include="Images\Logo\Главная.png" />
+    <Content Include="Images\Logo\Конверт.png" />
     <Content Include="Images\Logo\Написать.png" />
     <Content Include="Images\struct.png" />
     <Content Include="Images\clipboard.png" />
@@ -2387,6 +2389,8 @@
     <Content Include="Images\Обратная связь.png" />
     <Content Include="Images\Обратнвя связь 2.png" />
     <Content Include="Images\ПРОДУКТ.png" />
+    <Content Include="Images\Сообщения 1.png" />
+    <Content Include="Images\Сообщения.png" />
     <Content Include="Images\Фон.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -2763,6 +2767,9 @@
     <Content Include="Views\Sections\News.cshtml" />
     <Content Include="Views\Sections\Questions.cshtml" />
     <Content Include="Views\Sections\Feedback.cshtml" />
+    <Content Include="Views\Sections\Messages.cshtml" />
+    <Content Include="Views\Sections\IncomeMsgPart.cshtml" />
+    <Content Include="Views\Sections\SentMsgPart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

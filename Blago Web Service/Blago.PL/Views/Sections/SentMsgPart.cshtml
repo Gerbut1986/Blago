@@ -1,0 +1,51 @@
+﻿
+@{
+    var msgs = ViewBag.Messages as List<Blago.BLL.DTO.MessageDto>;
+    var users = ViewBag.Users as List<Blago.PL.Models.ApplicationUser>;
+
+    if (msgs == null)
+    {
+        <h3 style="color: #333331; text-align: center; font-family: Arial; padding: 50px; border: 2px solid #333331">
+            У Вас нет сообщений...
+        </h3>
+    }
+    else
+    {
+        <table class="table table-hover" style="background-color: #bfe0c5">
+            <thead>
+                <tr style="text-align:center">
+                    <th scope="col">№</th>
+                    <th scope="col">ДАТА</th>
+                    <th scope="col">ОТПРАВИТЕЛЬ</th>
+                    <th scope="col">ТЕМА</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < msgs.Count; i++)
+                {
+                    var cnt = i + 1;
+                    var user = users.FirstOrDefault(f => f.UserId == msgs[i].SenderId);
+                    <tr style="text-align: center; background-color: #bfe0c5">
+                        <td>@cnt</td>
+                        <td>@msgs[i].DateSend</td>
+                        <td>@user.FirstName @user.LastName</td>
+                        <td>@msgs[i].Title</td>
+                        <td>
+                            @Html.ActionLink("ОТКРЫТЬ", "MsgDetails", "Sections", new
+                            {@*msgDetailId = msgs.Id*@},
+new
+                           {
+                               @class = "btn btn-default",
+                               style = "border-radius:0px;font-weight: bold;padding: 12px;" +
+"border - radius: 0px;border: 2px solid #827a7a;background-color: #b0ae2c;color: white; "
+                           })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}
+
+

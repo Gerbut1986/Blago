@@ -263,6 +263,7 @@ namespace Blago.PL.Controllers
 
         public ActionResult SendMessage(EmailData mailInfo)
         {
+            var u = CurrentLocalUser;
             //var recipient = UserManager.Users.FirstOrDefault(f => f.UserId == userInfo.UserId);
             isMessageSent = true;
             return RedirectToAction("mainpage");

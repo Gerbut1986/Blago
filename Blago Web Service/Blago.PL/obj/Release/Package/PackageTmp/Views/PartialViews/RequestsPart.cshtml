@@ -4,7 +4,7 @@
     var withdraw = ViewBag.Withdrawals as List<Blago.BLL.DTO.WithdrawDto>;
     var users = (List<Blago.PL.Models.ApplicationUser>)ViewBag.Users;
 
-    <table class="table table-dark table-hover">
+    <table class="table table-dark table-hover" style="">
         <thead>
             <tr style="text-align:center">
                 <th scope="col">№</th>
@@ -23,7 +23,7 @@
                 <tr style="text-align:center">
                     <td>@w.Id</td>
                     <td>@w.DateWithdraw</td>
-                    <td>@user.LastName @user.FirstName[0] . @user.MiddleName[0] .</td>
+                    <td>@user.LastName @user.FirstName[0]</td>
                     <th scope="row">@user.PhoneNumber</th>
                     <td>@w.NumberCard</td>
                     <td>@w.Amount</td>
