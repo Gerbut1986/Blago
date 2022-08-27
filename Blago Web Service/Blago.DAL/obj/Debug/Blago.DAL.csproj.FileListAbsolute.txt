@@ -46,3 +46,15 @@ D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL
 D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.csproj.CopyComplete
 D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.dll
 D:\Рабочий стол УНП\Проект\Blago\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.pdb
+C:\Users\Андрей\Desktop\C# Programming(Andrii)\Blago\Blago Web Service\Blago.DAL\bin\Debug\Blago.DAL.dll.config
+C:\Users\Андрей\Desktop\C# Programming(Andrii)\Blago\Blago Web Service\Blago.DAL\bin\Debug\Blago.DAL.dll
+C:\Users\Андрей\Desktop\C# Programming(Andrii)\Blago\Blago Web Service\Blago.DAL\bin\Debug\Blago.DAL.pdb
+C:\Users\Андрей\Desktop\C# Programming(Andrii)\Blago\Blago Web Service\Blago.DAL\bin\Debug\EntityFramework.dll
+C:\Users\Андрей\Desktop\C# Programming(Andrii)\Blago\Blago Web Service\Blago.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Андрей\Desktop\C# Programming(Andrii)\Blago\Blago Web Service\Blago.DAL\bin\Debug\EntityFramework.xml
+C:\Users\Андрей\Desktop\C# Programming(Andrii)\Blago\Blago Web Service\Blago.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Андрей\Desktop\C# Programming(Andrii)\Blago\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.csproj.AssemblyReference.cache
+C:\Users\Андрей\Desktop\C# Programming(Andrii)\Blago\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Андрей\Desktop\C# Programming(Andrii)\Blago\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.csproj.CopyComplete
+C:\Users\Андрей\Desktop\C# Programming(Andrii)\Blago\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.dll
+C:\Users\Андрей\Desktop\C# Programming(Andrii)\Blago\Blago Web Service\Blago.DAL\obj\Debug\Blago.DAL.pdb

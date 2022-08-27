@@ -398,7 +398,7 @@ small, .small {
 
 mark, .mark {
     padding: .2em;
-    background-color: #fcf8e3
+    background-color: #fff
 }
 
 .list-unstyled {
@@ -1816,12 +1816,12 @@ pre {
 }
 
 .table-striped t#fff tr:nth-of-type(odd) {
-    background-color: rgba(0,0,0,.05)
+    background-color: #fff
 }
 
 .table-hover t#fff tr:hover {
     color: #212529;
-    background-color: rgba(0,0,0,.075)
+    background-color: #fff
 }
 
 .table-primary, .table-primary > th, .table-primary > td {
@@ -3291,7 +3291,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 
 .fade:not(.show) {
-    opacity: 0
+    opacity: 1
 }
 
 .collapse:not(.show) {
@@ -6063,7 +6063,7 @@ a.badge-dark:focus, a.badge-dark.focus {
     line-height: 1;
     color: #000;
     text-shadow: 0 1px 0 #fff;
-    opacity: .5
+    opacity: 1
 }
 
     .close:hover {
@@ -6072,7 +6072,7 @@ a.badge-dark:focus, a.badge-dark.focus {
     }
 
     .close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {
-        opacity: .75
+        opacity: 1
     }
 
 button.close {
@@ -6276,11 +6276,11 @@ a.close.disabled {
 }
 
     .modal-backdrop.fade {
-        opacity: 0
+        opacity: 1
     }
 
     .modal-backdrop.show {
-        opacity: .5
+        opacity: 1
     }
 
 .modal-header {
@@ -6409,11 +6409,11 @@ a.close.disabled {
     line-break: auto;
     font-size: .875rem;
     word-wrap: break-word;
-    opacity: 0
+    opacity: 1
 }
 
     .tooltip.show {
-        opacity: .9
+        opacity: 1
     }
 
     .tooltip .arrow {
@@ -6645,7 +6645,7 @@ a.close.disabled {
     padding: .5rem .75rem;
     margin-bottom: 0;
     font-size: 1rem;
-    background-color: #f7f7f7;
+    background-color: #fff;
     border-bottom: 1px solid #ebebeb;
     border-top-left-radius: calc(.3rem - 1px);
     border-top-right-radius: calc(.3rem - 1px)
@@ -6723,7 +6723,7 @@ a.close.disabled {
     }
 
 .carousel-fade .carousel-item {
-    opacity: 0;
+    opacity: 1;
     -webkit-transition-property: opacity;
     -o-transition-property: opacity;
     transition-property: opacity;
@@ -6739,7 +6739,7 @@ a.close.disabled {
 
 .carousel-fade .active.carousel-item-left, .carousel-fade .active.carousel-item-right {
     z-index: 0;
-    opacity: 0;
+    opacity:1;
     -webkit-transition: 0s .6s opacity;
     -o-transition: 0s .6s opacity;
     transition: 0s .6s opacity
@@ -6770,7 +6770,7 @@ a.close.disabled {
     width: 15%;
     color: #fff;
     text-align: center;
-    opacity: .5;
+    opacity: 1;
     -webkit-transition: opacity .15s ease;
     -o-transition: opacity .15s ease;
     transition: opacity .15s ease
@@ -6788,7 +6788,7 @@ a.close.disabled {
     color: #fff;
     text-decoration: none;
     outline: 0;
-    opacity: .9
+    opacity: 1
 }
 
 .carousel-control-prev {
@@ -6848,7 +6848,7 @@ a.close.disabled {
         background-clip: padding-box;
         border-top: 10px solid transparent;
         border-bottom: 10px solid transparent;
-        opacity: .5;
+        opacity: 1;
         -webkit-transition: opacity .6s ease;
         -o-transition: opacity .6s ease;
         transition: opacity .6s ease
@@ -6939,7 +6939,7 @@ a.close.disabled {
     vertical-align: text-bottom;
     background-color: currentColor;
     border-radius: 50%;
-    opacity: 0;
+    opacity: 1;
     -webkit-animation: spinner-grow .75s linear infinite;
     animation: spinner-grow .75s linear infinite
 }
@@ -7026,7 +7026,7 @@ a.bg-danger:hover, a.bg-danger:focus, button.bg-danger:hover, button.bg-danger:f
 }
 
 a.bg-light:hover, a.bg-light:focus, button.bg-light:hover, button.bg-light:focus {
-    background-color: #dae0e5 !important
+    background-color: #fff !important
 }
 
 .bg-dark {
@@ -8668,7 +8668,7 @@ a.bg-dark:hover, a.bg-dark:focus, button.bg-dark:hover, button.bg-dark:focus {
     z-index: 1;
     pointer-events: auto;
     content: "";
-    background-color: rgba(0,0,0,0)
+    background-color: #fff
 }
 
 .m-0 {
